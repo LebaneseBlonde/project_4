@@ -1,0 +1,1 @@
+cateogries = ['Pubs/Bars', 'Restaurants', 'Cafés/Delis', 'Retail', 'The Arts']
