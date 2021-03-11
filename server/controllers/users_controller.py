@@ -2,7 +2,7 @@ from flask import Blueprint, request, g
 from models.user_model import User
 from serializers.user_schema import UserSchema
 from marshmallow.exceptions import ValidationError
-from decorators.secure_route import secure_route
+from decorators.secure_route import secure_route_user
 
 user_schema = UserSchema()
 router = Blueprint(__name__, 'users')
@@ -33,6 +33,6 @@ def user_login():
     return { 'token' : token, 'message' : 'Sign in successful.' }
 
 @router.route('/users/profile', methods=['GET'])
-@secure_route
+@secure_route_user
 def get_user_profile():
     return user_schema.jsonify(g.current_user)

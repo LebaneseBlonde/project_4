@@ -1,8 +1,7 @@
 from flask import Blueprint, request, g
 from models.business_model import Business
 from serializers.business_schema import BusinessSchema
-from marshmallow.exceptions import ValidationError
-from decorators.secure_route import secure_route
+from decorators.secure_route import secure_route_business
 
 business_schema = BusinessSchema()
 
@@ -63,7 +62,7 @@ def get_businesses(category, query):
             queried_businesses.extend(businesses_by_postcode)
 
         else:
-            print('world')
+            
             businesses_by_name = Business.query.filter(Business.name.ilike(f'%{term}%'), Business.category == category).all()
 
             businesses_by_city = Business.query.filter(Business.address_city.ilike(f'%{term}%'), Business.category == category).all()
@@ -82,15 +81,40 @@ def get_businesses(category, query):
 
 
 @router.route('/businesses/<int:business_id>', methods=['PUT'])
-@secure_route
+@secure_route_business
 def update_business(business_id):
     
     business_to_update = Business.query.get(business_id)
 
-    if 
+    if g.current_user != business_to_update:
+
+        return {'message': 'Unauthorized access.'}
+
+    business_dictionary = request.json
+
+    business = business_schema.load(
+        business_dictionary,
+        instance = business_to_update,
+        partial = True)
+
+    business.save()
+
+    return business_schema.jsonify(business), 200
+
 
 @router.route('/businesses/<int:business_id>', methods=['DELETE'])
+@secure_route_business
 def delete_business(business_id):
-    return {'message': 'delete business'}, 200
+    
+    business_to_delete = Business.query.get(business_id)
+
+    if g.current_user != business_to_delete:
+
+        return {'message': 'Unauthorized access.'}
+
+    business_to_delete.remove()
+
+    return {'message': 'Account successfully deleted'}, 200
+
 
 
