@@ -14,11 +14,7 @@ router = Blueprint(__name__, 'businesses')
 def register_business():
     business_data = request.json
 
-    try:
-        business = business_schema.load(business_data)
-
-    except ValidationError as e:
-        return { 'errors': e.messages, 'messages': 'Something went wrong'}
+    business = business_schema.load(business_data)
 
     business.save()
 
@@ -86,8 +82,12 @@ def get_businesses(category, query):
 
 
 @router.route('/businesses/<int:business_id>', methods=['PUT'])
-def put_business(business_id):
-    return {'message': 'put business'}, 200
+@secure_route
+def update_business(business_id):
+    
+    business_to_update = Business.query.get(business_id)
+
+    if 
 
 @router.route('/businesses/<int:business_id>', methods=['DELETE'])
 def delete_business(business_id):
