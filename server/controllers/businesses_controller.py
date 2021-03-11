@@ -2,7 +2,7 @@ from flask import Blueprint, request, g
 from models.business_model import Business
 from serializers.business_schema import BusinessSchema
 from marshmallow.exceptions import ValidationError
-from decorators.secure_route import secure_route
+from decorators.secure_route import secure_route_business
 
 business_schema = BusinessSchema()
 
@@ -82,12 +82,10 @@ def get_businesses(category, query):
 
 
 @router.route('/businesses/<int:business_id>', methods=['PUT'])
-@secure_route
+@secure_route_business
 def update_business(business_id):
     
     business_to_update = Business.query.get(business_id)
-
-    if 
 
 @router.route('/businesses/<int:business_id>', methods=['DELETE'])
 def delete_business(business_id):
