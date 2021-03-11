@@ -42,24 +42,36 @@ def login_business():
 @router.route('/businesses/<category>/<query>', methods=['GET'])
 def get_businesses(category, query):
 
-    businesses_by_name = None
-    businesses_by_city = None
+    queried_businesses = []
+    
+    search_terms = query.split(' ')
 
+    for terms in search_terms:
 
-    if category == 'All Categories':
+        if term == 'the' or term == 'and' or term == '&':
+            search_terms.remove(term)
 
-        businesses_by_name = Business.query.filter(name.like(f'{query}')).all()
+    for term in search_terms:
 
-        businesses_by_city = Business.query.filter(location['city'].like(f'{query}')).all()
+        if category == 'All Categories':
 
-    else:
+            businesses_by_name = Business.query.filter(name.like(f'{term}')).all()
 
-        businesses_by_name = Business.query.filter(name.like(f'{query}    '), category = category).all()
+            businesses_by_city = Business.query.filter(location['city'].like(f'{term}')).all()
 
-        businesses_by_city = Business.query.filter(location['city'].like(f'{query}'), category = category).all()
+            queried_businesses.extend(businesses_by_name)
+            queried_businesses.extend(businesses_by_city)
 
-    if not business_by_name and not business_by_city:
+        else:
 
+            businesses_by_name = Business.query.filter(name.like(f'{term}'), category = category).all()
+
+            businesses_by_city = Business.query.filter(location['city'].like(f'{term}'), category = category).all()
+
+            queried_businesses.extend(businesses_by_name)
+            queried_businesses.extend(businesses_by_city)
+
+    if len(queried_businesses) == 0:
         return {'message': 'No businesses not found'}, 404
 
     return business_schema.jsonify(businesses_by_name), business_schema.jsonify(businesses_by_city), 200
