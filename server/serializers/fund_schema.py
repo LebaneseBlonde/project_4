@@ -1,5 +1,6 @@
 from app import ma
 from models.fund_model import Fund
+from marshmallow import fields
 
 class FundSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
