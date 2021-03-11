@@ -1,10 +1,6 @@
 from flask import Blueprint, request, g
 from models.business_model import Business
 from serializers.business_schema import BusinessSchema
-<<<<<<< HEAD
-from marshmallow.exceptions import ValidationError
-=======
->>>>>>> development
 from decorators.secure_route import secure_route_business
 
 business_schema = BusinessSchema()
