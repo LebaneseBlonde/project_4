@@ -6,7 +6,7 @@ class BusinessSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Business
         load_instance = True
-        exclude = ('password_hash')
+        exclude = ('password_hash',)
         load_only = ('email', 'password')
 
     password = fields.String(required=True)

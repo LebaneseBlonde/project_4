@@ -13,6 +13,8 @@ db = SQLAlchemy(app)
 ma = Marshmallow(app)
 bcrypt = Bcrypt(app)
 
-from controllers import businesses
+from controllers import businesses_controller
+from controllers import users_controller
 
-app.register_blueprint(businesses.router, url_prefix='/api')
+app.register_blueprint(businesses_controller.router, url_prefix='/api')
+app.register_blueprint(users_controller.router, url_prefix='/api')
