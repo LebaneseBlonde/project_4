@@ -5,3 +5,5 @@ from decorators.secure_route import secure_route
 
 update_schema = UpdateSchema()
 router = Blueprint(__name__, 'updates')
+
+@router.route('/funds/<int:fund_id>/updates')
