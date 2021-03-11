@@ -13,3 +13,4 @@ class BusinessSchema(ma.SQLAlchemyAutoSchema):
     fund = fields.Nested('FundSchema')
     images = fields.Nested('ImageSchema', many=True)
     conversations = fields.Nested('ConversationSchema', many=True)
+    
