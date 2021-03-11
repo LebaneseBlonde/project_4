@@ -5,3 +5,16 @@ from marshmallow.exceptions import ValidationError
 
 user_schema = UserSchema()
 router = Blueprint(__name__, 'users')
+
+@router.route('/user/register')
+def user_register():
+    try:
+        user = user_schema.load(request.json)
+
+    except ValidationError as e:
+        return {'errors': e.messages, 'messages': 'There was an issue with registering.'}
+    
+    user.save()
+    return user_schema.jsonify(user)
+
+@router.route('/')
