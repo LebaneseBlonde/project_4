@@ -20,5 +20,26 @@ tier_list = [
         price = 50,
         perks = ['Free entry to two live music events', 'Buy one get one free voucher for your next drink once we re-open'],
         name = 'Big Bwoi Supporter'
-    )
+    ),
+    Tier(
+        price = 5,
+        perks = ['Thank you so much for your support!'],
+        name = 'Supporter'
+    ),
+    Tier(
+        price = 10,
+        perks = ['Free entry to one event'],
+        name = 'Strong Supporter'
+    ),
+    Tier(
+        price = 25,
+        perks = ['Free entry to two events'],
+        name = 'Serious Supporter'
+    ),
+    Tier(
+        price = 50,
+        perks = ['free entry to four events'],
+        name = 'Big Bwoi Supporter'
+    ),
+    
 ]
