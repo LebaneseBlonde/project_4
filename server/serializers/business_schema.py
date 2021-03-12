@@ -15,3 +15,4 @@ class BusinessSchema(ma.SQLAlchemyAutoSchema):
     images = fields.Nested('ImageSchema', many=True)
     conversations = fields.Nested('ConversationSchema', many=True)
     
+    
