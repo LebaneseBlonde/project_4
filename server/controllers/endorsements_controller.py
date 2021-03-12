@@ -6,29 +6,30 @@ from serializers.fund_schema import FundSchema
 from decorators.secure_route import secure_route_user
 
 endorsement_schema = EndorsementSchema()
-fund_schema = FundSchema
+fund_schema = FundSchema()
 
 
 router = Blueprint(__name__, 'endorsements')
 
-@router.route('/businesses/<int:fund_id>/endorsements', methods=['POST'])
+@router.route('/funds/<int:fund_id>/endorsements', methods=['POST'])
 @secure_route_user
 def post_endorsement(fund_id):
 
     endorsement_dictionary = request.json
 
-    fund_to_endorse = Fund.query.get(fund_id)
+    fund = Fund.query.get(fund_id)
 
     endorsement = endorsement_schema.load(endorsement_dictionary)
 
-    endorsement.fund = fund_to_endorse
+    endorsement.fund_id = fund_id
+    endorsement.user_id = g.current_user.id
 
     endorsement.save()
 
-    return endorsement_schema.jsonify(endorsement)
+    return fund_schema.jsonify(fund), 200
 
 
-@router.route('/businesses/<int:fund_id>/endorsements/<int:endorsement_id>', methods=['PUT'])
+@router.route('/funds/<int:fund_id>/endorsements/<int:endorsement_id>', methods=['PUT'])
 @secure_route_user
 def update_endorsement(fund_id, endorsement_id): 
 
@@ -48,7 +49,7 @@ def update_endorsement(fund_id, endorsement_id):
     return fund_schema.jsonify(fund), 201
 
 
-@router.route('/businesses/<int:fund_id>/endorsements/<int:endorsement_id>', methods=['DELETE'])
+@router.route('/funds/<int:fund_id>/endorsements/<int:endorsement_id>', methods=['DELETE'])
 @secure_route_user
 def delete_endorsement(fund_id, endorsement_id):
 

@@ -10,29 +10,29 @@ business_schema = BusinessSchema()
 
 router = Blueprint(__name__, 'funds')
 
-@router.route('/businesses/<int:business_id>/fund', methods=['POST'])
+@router.route('/businesses/<int:business_id>/funds', methods=['POST'])
 @secure_route_business
 def create_fund(business_id):
 
     business = Business.query.get(business_id)
 
-    if business != g.current_user:
+    if business.id != g.current_user.id:
         return {'message': 'Unauthorized access.'}
 
     fund_dictionary = request.json
 
     fund = fund_schema.load(fund_dictionary)
 
-    fund.save()
+    fund.business_id = g.current_user.id
 
-    business.fund.append(fund)
+    fund.save()
 
     business.save()
 
     return fund_schema.jsonify(fund), 200
 
 
-@router.route('/businesses/<int:business_id>/fund/<int:fund_id>', methods=['PUT'])
+@router.route('/businesses/<int:business_id>/funds/<int:fund_id>', methods=['PUT'])
 @secure_route_business
 def update_fund(business_id, fund_id):
 
@@ -55,7 +55,7 @@ def update_fund(business_id, fund_id):
     return business_schema.jsonify(business), 200
 
 
-@router.route('/businesses/<int:business_id>/fund/<int:fund_id>', methods=['DELETE'])
+@router.route('/businesses/<int:business_id>/funds/<int:fund_id>', methods=['DELETE'])
 @secure_route_business
 def delete_fund(business_id, fund_id):
 
