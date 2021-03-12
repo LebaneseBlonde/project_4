@@ -25,9 +25,5 @@ update_list = [
         content = 'We are completely overwhelmed at the response to our crowdfunder and are struggling to find the words to thank everyone who has donated or shared the project so far. The whole team are immensely grateful for every single message of support and donation. There’s still, of course, a long way to go and we’ve increased our target with the aim of extending the survival fund to 3 months.',
         likes = 21,
         fund_id = 4
-    ),
-    Update(
-        title = 'Wow',
-        content = "The outpouring of love, generosity and trust has been completely staggering. Thank you to everyone who has written, shared or donated any amount. Reading your messages has been a joy over the last 24 hours and we've covered our debts for nearly three months of closure. As the furlough scheme is brought to an end businesses like ours with no income remain at risk, the money we raise now can keep our staff supported and jobs in place until the end of the year when live music may return. The whole team extends it's heartfelt gratitude and we can't wait for a time when we can welcome you back."
     )
 ]

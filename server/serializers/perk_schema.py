@@ -7,4 +7,4 @@ class PerkSchema(ma.SQLAlchemyAutoSchema):
         model = Perk
         load_instance = True
     
-    tier = fields.Nested('TierSchema')
+    tier = fields.Nested('TierSchema', many=True)

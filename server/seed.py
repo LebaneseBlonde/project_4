@@ -36,9 +36,9 @@ with app.app_context():
         print(f'{len(tier_list)} tiers added')
         db.session.commit()
 
-        # db.session.add_all(perk_list)
-        # print(f'{len(perk_list)} perks added')
-        # db.session.commit()
+        db.session.add_all(perk_list)
+        print(f'{len(perk_list)} perks added')
+        db.session.commit()
 
         db.session.add_all(update_list)
         print(f'{len(update_list)} updates added')

@@ -9,6 +9,7 @@ update_schema = UpdateSchema()
 fund_schema = FundSchema()
 router = Blueprint(__name__, 'updates')
 
+# ! this shit aint working
 @router.route('/funds/<int:fund_id>/updates', methods=['GET'])
 def get_updates(fund_id):
     updates = Update.query.all()
@@ -22,9 +23,9 @@ def create_update(fund_id):
     if fund.business_id != g.current_user.id:
         return {'message': 'Unauthorized access.'}
     update = update_schema.load(update_dictionary)
-    update.fund = fund
+    update.fund_id = fund_id
     update.save()
-    return update_schema.jsonify(update), 201
+    return fund_schema.jsonify(fund), 201
 
 @router.route('/funds/<int:fund_id>/updates/<int:update_id>', methods=['DELETE'])
 @secure_route_business
