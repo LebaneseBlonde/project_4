@@ -19,6 +19,8 @@ def get_updates(fund_id):
 def create_update(fund_id):
     update_dictionary = request.json
     fund = Fund.query.get(fund_id)
+    if fund.business_id != g.current_user.id:
+        return {'message': 'Unauthorized access.'}
     update = update_schema.load(update_dictionary)
     update.fund = fund
     update.save()
@@ -28,19 +30,23 @@ def create_update(fund_id):
 @secure_route_business
 def delete_update(fund_id, update_id):
     update = Update.query.get(update_id)
-    update.remove()
     fund = Fund.query.get(fund_id)
+    if fund.business_id != g.current_user.id:
+        return {'message': 'Unauthorized access.'}
+    update.remove()
     return fund_schema.jsonify(fund), 202
 
 @router.route('/funds/<int:fund_id>/updates/<int:update_id>', methods=['PUT'])
 @secure_route_business
 def update_update(fund_id, update_id):
     update_dictionary = request.json
+    fund = Fund.query.get(fund_id)
+    if fund.business_id != g.current_user.id:
+        return {'message': 'Unauthorized access.'}
     existing_update = Update.query.get(update_id)
     update = update_schema.load(
         update_dictionary, instance=existing_update, partial=True
     )
     update.save()
-    fund = Fund.query.get(fund_id)
     return fund_schema.jsonify(fund), 201
 

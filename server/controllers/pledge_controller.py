@@ -28,6 +28,8 @@ def create_pledge():
 @secure_route_user
 def remove_pledge(pledge_id):
     pledge = Pledge.query.get(pledge_id)
+    if pledge.user_id != g.current_user.id:
+        return {'message': 'Unauthorized access.'}
     pledge.remove()
     user = User.query.get(g.current_user)
     return user_schema.jsonify(user)

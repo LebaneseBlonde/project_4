@@ -2,7 +2,7 @@ from app import ma
 from models.fund_model import Fund
 from serializers.endorsement_schema import EndorsementSchema
 from serializers.update_schema import UpdateSchema
-# from serializers.pledge_schema import PledgeSchema
+from serializers.pledge_schema import PledgeSchema
 from marshmallow import fields
 
 class FundSchema(ma.SQLAlchemyAutoSchema):
