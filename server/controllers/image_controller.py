@@ -18,7 +18,7 @@ def add_gallery_image(business_id):
 
     business = Business.query.get(business_id)
 
-    if business != g.current_user:
+    if business.id != g.current_user.id:
         return {'message': 'Unauthorized access.'}
 
     image = image_schema.load(image_dictionary)
