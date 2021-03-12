@@ -1,6 +1,7 @@
 from app import app, db
 from data.user_data import user_list
 from data.business_data import business_list
+from data.fund_data import fund_list
 
 
 with app.app_context():
@@ -17,6 +18,10 @@ with app.app_context():
 
         db.session.add_all(business_list)
         print(f'{len(business_list)} businesses added')
+        db.session.commit()
+
+        db.session.add_all(fund_list)
+        print(f'{len(fund_list)} funds added')
         db.session.commit()
 
         print('Everything committed')

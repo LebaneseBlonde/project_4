@@ -92,14 +92,14 @@ def update_business(business_id):
 
     business_dictionary = request.json
 
-    business = business_schema.load(
+    updated_business = business_schema.load(
         business_dictionary,
         instance = business_to_update,
         partial = True)
 
-    business.save()
+    updated_business.save()
 
-    return business_schema.jsonify(business), 200
+    return business_schema.jsonify(updated_business), 200
 
 
 @router.route('/businesses/<int:business_id>', methods=['DELETE'])

@@ -1,4 +1,5 @@
 from models.business_model import Business
+from data.fund_data import fund_list
 
 business_list = [
     Business(
@@ -7,11 +8,13 @@ business_list = [
         address_2 =  'Lewisham',
         address_city = 'London',
         address_postcode = 'SE13 6JZ',
-        category = 'Pubs',
+        category = 'Pubs & Bars',
         bio = 'Located in the heart of Lewisham, the Fox and Firkin is a home for live underground music, bringing a stellar cast of live acts, with an eclectic variety of sounds to get you moving. Punk, rave, reggae, ska, dub, drum n bass, gypsy, swing, blues, balkan, and everything in between! We’ve got a fantastic outdoor space for you to enjoy the sun in the summer months, where we host BBQs and outdoor parties. Innit Dough offer authentic stone baked pizzas made in our very own kitchen, and we\'ve got an ever-changing menu of artisan ales and craft beer. Kids welcome with adult supervision until 7pm. Well behaved dogs welcome until 7pm.',
         image = 'https://www.crowdfunder.co.uk/uploads/projects/1030786.jpg?1611064810',
-        established = 1999,
-        email = 'info@foxfirkin.com'
+        established = '1999',
+        email = 'info@foxfirkin.com',
+        password = 'password',
+        fund = [fund_list[0]]
     ),
     Business(
         name = 'The Jazz Cafe',
@@ -22,8 +25,9 @@ business_list = [
         category = 'Venues',
         bio = "Jazz Café Camden is one of London's must iconic live music venues, and has played host to the likes of Cameo, Faithless, Bobby Womack, Grandmaster Flash and Alton Ellis to name but a few. With a capacity of 500, it is London's Premier intimate venue.",
         image = 'https://www.crowdfunder.co.uk/uploads/projects/895408.jpg?1590509554',
-        established = 1990,
-        email = 'info@thejazzcafelondon.com'
+        established = '1990',
+        email = 'info@thejazzcafelondon.com',
+        password = 'password'
     ),
     Business(
         name = 'Yuu kitchen',
@@ -34,8 +38,9 @@ business_list = [
         category = 'Restaurants',
         bio = "Yuu Kitchen opened its doors in October 2016 with Australian friends, Stephen Lowe (General Manager), a long time London restaurant manager and Jon de Villa (Head Chef), previously of Nobu, Nobu Berkeley, Zafferano and Bone Daddies. The restaurant is inspired by the flavours of south-east Asia and the Pacific rim in a nod to Jon’s heritage and travels. Yuu Kitchen collaborated with Hong Kong based artist, Lunatic, to commission some original artwork. The Illustrations that have been created have strong influences from Manga, Asian fashion, comic-book and pop culture – styles synonymous with Lunatic’s work.",
         image = 'https://www.thefoodaholic.co.uk/wp-content/uploads/2019/08/909-den-room.jpg',
-        established = 2011,
-        email = 'info@yuukitchen.com'
+        established = '2011',
+        email = 'info@yuukitchen.com',
+        password = 'password'
     ),
     Business(
         name = 'SkandiHus Pottery Studios',
@@ -46,7 +51,8 @@ business_list = [
         category = 'The Arts',
         bio = "The SkandiHus brand is inspired by a love for Scandinavian design in which beauty is radiated through light colours, the ample use of natural materials, minimalism and functionality. Like many Scandinavian designers before her, Stine believes that quality design should be affordable, stylish and relevant to the modern human being by providing minimal distraction and maximum aesthetic value. When Stine is not busy making her own designs, she teaches classes and events from her studio in de Beauvoir, Hackney. She is slowly building the clay revolution, one ball of mud at a time.",
         image = 'https://www.crowdfunder.co.uk/uploads/projects/1049509.jpg?1612647702',
-        established = 2010,
-        email = 'info@skandihusstudios.com'
+        established = '2010',
+        email = 'info@skandihusstudios.com',
+        password = 'password'
     )
 ]

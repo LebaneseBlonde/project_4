@@ -1,5 +1,6 @@
 from app import ma
 from models.business_model import Business
+from serializers.fund_schema import FundSchema
 from marshmallow import fields
 
 class BusinessSchema(ma.SQLAlchemyAutoSchema):
@@ -10,7 +11,7 @@ class BusinessSchema(ma.SQLAlchemyAutoSchema):
         load_only = ('email', 'password')
 
     password = fields.String(required=True)
-    fund = fields.Nested('FundSchema')
+    fund = fields.Nested('FundSchema', many=True)
     images = fields.Nested('ImageSchema', many=True)
     conversations = fields.Nested('ConversationSchema', many=True)
     

@@ -34,12 +34,12 @@ def update_endorsement(fund_id, endorsement_id):
 
     endorsement_dictionary = request.json
 
-    existing_endorsement = Endorsement.query.get(endorsement_id)
+    endorsement_to_update = Endorsement.query.get(endorsement_id)
 
-    if existing_endorsement.user_id != g.current_user.id:
+    if endorsement_to_update.user_id != g.current_user.id:
         return {'message': 'Unauthorized Access.'}
 
-    endorsement = endorsement_schema.load(endorsement_dictionary, instance=existing_endorsement, partial=True)
+    endorsement = endorsement_schema.load(endorsement_dictionary, instance=endorsement_to_update, partial=True)
 
     endorsement.save()
 
@@ -55,6 +55,9 @@ def delete_endorsement(fund_id, endorsement_id):
     fund = Fund.query.get(fund_id)
 
     endorsement_to_delete = Endorsement.query.get(endorsement_id)
+
+    if endorsement_to_delete.user_id != g.current_user.id:
+        return {'message': 'Unauthorized Access.'}
 
     fund.endorsements.remove(endorsement_to_delete)
 
