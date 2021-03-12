@@ -20,7 +20,7 @@ def create_update(fund_id):
     update_dictionary = request.json
     fund = Fund.query.get(fund_id)
     update = update_schema.load(update_dictionary)
-    update.fund = update
+    update.fund = fund
     update.save()
     return update_schema.jsonify(update), 201
 

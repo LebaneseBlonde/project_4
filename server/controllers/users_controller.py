@@ -26,7 +26,7 @@ def user_login():
         return { 'message' : 'No user found with a corresponding email.' }
 
     if not user.validate_password(request.json['password']):
-        return { 'message' : 'Invalid password.'}, 402
+        return { 'message' : 'Invalid password.' }, 402
 
     token = user.generate_token()
 
