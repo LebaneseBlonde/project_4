@@ -10,6 +10,5 @@ def log():
 🔴 Request Method: {request.method}
 🔴 Request URl: {request.url}
 😺‍ Request Headers: {request.headers}
-❓ Request Query: {request.args}  
 --------------------------------''')
 # 📦 Request Body: {request.json}
