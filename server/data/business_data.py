@@ -1,5 +1,6 @@
 from models.business_model import Business
 from data.fund_data import fund_list
+from data.image_data import image_list
 
 
 business_list = [
@@ -15,7 +16,8 @@ business_list = [
         established = '1999',
         email = 'info@foxfirkin.com',
         password = 'password',
-        fund = [fund_list[0]]
+        fund = [fund_list[0]],
+        gallery = [image_list[0], image_list[1], image_list[2]]
     ),
     Business(
         name = 'The Jazz Cafe',
@@ -29,7 +31,8 @@ business_list = [
         established = '1990',
         email = 'info@thejazzcafelondon.com',
         password = 'password',
-        fund = [fund_list[1]]
+        fund = [fund_list[1]],
+        gallery = [image_list[3], image_list[4]]
     ),
     Business(
         name = 'Yuu kitchen',
@@ -43,7 +46,8 @@ business_list = [
         established = '2011',
         email = 'info@yuukitchen.com',
         password = 'password',
-        fund = [fund_list[2]]
+        fund = [fund_list[2]],
+        gallery = [image_list[5], image_list[6]]
     ),
     Business(
         name = 'SkandiHus Pottery Studios',
@@ -57,6 +61,7 @@ business_list = [
         established = '2010',
         email = 'info@skandihusstudios.com',
         password = 'password',
-        fund = [fund_list[3]]
+        fund = [fund_list[3]],
+        gallery = [image_list[7], image_list[8]]
     )
 ]

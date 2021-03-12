@@ -17,6 +17,12 @@ bcrypt = Bcrypt(app)
 
 from controllers import businesses_controller
 from controllers import users_controller
+from controllers import image_controller
+from controllers import funds_controller
+from controllers import endorsements_controller
 
 app.register_blueprint(businesses_controller.router, url_prefix='/api')
 app.register_blueprint(users_controller.router, url_prefix='/api')
+app.register_blueprint(image_controller.router, url_prefix='/api')
+app.register_blueprint(funds_controller.router, url_prefix='/api')
+app.register_blueprint(endorsements_controller.router, url_prefix='/api')
