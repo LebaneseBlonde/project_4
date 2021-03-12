@@ -16,6 +16,8 @@ router = Blueprint(__name__, 'perks')
 def create_perk(fund_id, tier_id):
     perk_dictionary = request.json
     tier = Tier.query.get(tier_id)
+    if fund.business_id != g.current_user.id:
+        return {'message': 'Unauthorized access.'}
     perk = perk_schema.load(perk_dictionary)
     perk.tier = tier
     perk.save()
@@ -26,6 +28,8 @@ def create_perk(fund_id, tier_id):
 @secure_route_business
 def update_perk(fund_id, tier_id, perk_id):
     perk_dictionary = request.json
+    if fund.business_id != g.current_user.id:
+        return {'message': 'Unauthorized access.'}
     existing_perk = Perk.query.get(perk_id)
     perk = perk_schema.load(
         perk_dictionary, instance=existing_perk, partial=True
@@ -38,6 +42,8 @@ def update_perk(fund_id, tier_id, perk_id):
 @secure_route_business
 def delete_perk(fund_id, tier_id, perk_id):
     perk = Perk.query.get(perk_id)
+    if fund.business_id != g.current_user.id:
+        return {'message': 'Unauthorized access.'}
     perk.remove()
     tier = Tier.query.get(tier_id)
     return tier_schema.jsonify(tier), 201
