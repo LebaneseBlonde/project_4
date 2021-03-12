@@ -26,7 +26,7 @@ def create_tier(fund_id):
 
 @router.route('/funds/<int:fund_id>/tiers/<int:tier_id>', methods=['DELETE'])
 @secure_route_business
-def create_tier(fund_id, tier_id):
+def delete_tier(fund_id, tier_id):
     tier = Tier.query.get(tier_id)
     tier.remove()
     fund = Fund.query.get(fund_id)
@@ -34,7 +34,7 @@ def create_tier(fund_id, tier_id):
 
 @router.route('/funds/<int:fund_id>/tiers/<int:tier_id>', methods=['PUT'])
 @secure_route_business
-def create_tier(fund_id, tier_id):
+def update_tier(fund_id, tier_id):
     tier_dictionary = request.json
     existing_tier = Tier.query.get(tier_id)
     tier = tier_schema.load(

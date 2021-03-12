@@ -2,6 +2,7 @@ from app import db
 from models.base_model import Base
 from models.update_model import Update
 from models.pledge_model import Pledge
+from models.tier_model import Tier
 
 class Fund(db.Model, Base):
 
@@ -16,3 +17,5 @@ class Fund(db.Model, Base):
     endorsements = db.relationship('Endorsement', backref='endorsements', cascade='all, delete')
     updates = db.relationship('Update', backref='updates', cascade='all, delete')
     pledges = db.relationship('Pledge', backref='pledges', cascade='all, delete')
+    tiers = db.relationship('Tier', backref='tiers', cascade='all, delete')
+    
