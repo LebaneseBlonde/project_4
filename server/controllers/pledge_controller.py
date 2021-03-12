@@ -12,27 +12,26 @@ user_schema = UserSchema()
 fund_schema = FundSchema()
 router = Blueprint(__name__, 'pledges')
 
-@router.route('/pledges', methods=['POST'])
+@router.route('/funds/<int:fund_id>/pledges', methods=['POST'])
 @secure_route_user
-def create_pledge():
+def create_pledge(fund_id):
     pledge_dictionary = request.json
     pledge = pledge_schema.load(pledge_dictionary)
-    user = User.query.get(g.current_user)
-    #!fund = how to get the fund here?
-    pledge.user_id = user.id
-    pledge.fund = fund
+    pledge.user_id = g.current_user.id
+    fund = Fund.query.get(fund_id)
+    pledge.fund_id = fund_id
     pledge.save()
-    return user_schema.jsonify(user)
+    return fund_schema.jsonify(fund), 201
 
-@router.route('/pledges/<int:pledge_id>', methods=['DELETE'])
+@router.route('/funds/<int:fund_id>/pledges/<int:pledge_id>', methods=['DELETE'])
 @secure_route_user
-def remove_pledge(pledge_id):
+def remove_pledge(fund_id, pledge_id):
     pledge = Pledge.query.get(pledge_id)
     if pledge.user_id != g.current_user.id:
         return {'message': 'Unauthorized access.'}
     pledge.remove()
-    user = User.query.get(g.current_user)
-    return user_schema.jsonify(user)
+    fund = Fund.query.get(fund_id)
+    return fund_schema.jsonify(fund), 200
 
 
 
