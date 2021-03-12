@@ -6,3 +6,5 @@ class EndorsementSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Endorsement
         load_instance = True
+    
+    user = fields.Nested('UserSchema')

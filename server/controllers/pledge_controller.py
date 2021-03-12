@@ -19,7 +19,7 @@ def create_pledge():
     pledge = pledge_schema.load(pledge_dictionary)
     user = User.query.get(g.current_user)
     #!fund = how to get the fund here?
-    pledge.user = user
+    pledge.user_id = user.id
     pledge.fund = fund
     pledge.save()
     return user_schema.jsonify(user)

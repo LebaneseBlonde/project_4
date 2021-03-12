@@ -5,11 +5,16 @@ from datetime import *
 from config.environment import secret
 import jwt
 
+
 class User(db.Model, Base):
     __tablename__ = 'users'
     username = db.Column(db.String(16), nullable=False, unique=True)
     email = db.Column(db.Text, nullable=False, unique=True)
     password_hash = db.Column(db.String(128), nullable=True)
+    pledge = db.relationship('Pledge', backref='pledge', cascade='all, delete')
+    endorsement = db.relationship('Endorsement', backref='endorsement', cascade='all, delete')
+
+
 
     @hybrid_property
     def password(self):
