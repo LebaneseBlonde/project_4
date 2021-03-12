@@ -11,3 +11,4 @@ class Fund(db.Model, Base):
     description = db.Column(db.Text, nullable = False)
 
     business_id = db.Column(db.Integer, db.ForeignKey('businesses.id', ondelete='CASCADE'))
+    endorsements = db.relationship('Endorsement', backref='endorsements', cascade='all, delete')

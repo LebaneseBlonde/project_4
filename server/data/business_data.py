@@ -1,6 +1,7 @@
 from models.business_model import Business
 from data.fund_data import fund_list
 
+
 business_list = [
     Business(
         name = 'The Fox & Firkin', 
