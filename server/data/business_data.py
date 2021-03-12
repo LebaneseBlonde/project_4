@@ -28,7 +28,8 @@ business_list = [
         image = 'https://www.crowdfunder.co.uk/uploads/projects/895408.jpg?1590509554',
         established = '1990',
         email = 'info@thejazzcafelondon.com',
-        password = 'password'
+        password = 'password',
+        fund = [fund_list[1]]
     ),
     Business(
         name = 'Yuu kitchen',
@@ -41,7 +42,8 @@ business_list = [
         image = 'https://www.thefoodaholic.co.uk/wp-content/uploads/2019/08/909-den-room.jpg',
         established = '2011',
         email = 'info@yuukitchen.com',
-        password = 'password'
+        password = 'password',
+        fund = [fund_list[2]]
     ),
     Business(
         name = 'SkandiHus Pottery Studios',
@@ -54,6 +56,7 @@ business_list = [
         image = 'https://www.crowdfunder.co.uk/uploads/projects/1049509.jpg?1612647702',
         established = '2010',
         email = 'info@skandihusstudios.com',
-        password = 'password'
+        password = 'password',
+        fund = [fund_list[3]]
     )
 ]

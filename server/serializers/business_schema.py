@@ -11,6 +11,6 @@ class BusinessSchema(ma.SQLAlchemyAutoSchema):
         load_only = ('email', 'password')
 
     password = fields.String(required=True)
-    funds = fields.Nested('FundSchema', many=True)
+    fund = fields.Nested('FundSchema', many=True)
     images = fields.Nested('ImageSchema', many=True)
     
