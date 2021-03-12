@@ -5,3 +5,5 @@ class Pledge(db.Model, Base):
     __tablename__ = 'pledges'
     amount = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='CASCADE'))
+    fund_id = db.Column(db.Integer, db.ForeignKey('funds.id', ondelete='CASCADE'))
+    
