@@ -1,53 +1,46 @@
 from models.tier_model import Tier
+from data.perk_data import perk_list
 
 tier_list = [
     Tier(
         price = 5,
-        perks = ['Our deepest gratitude for your support'],
-        name = 'Supporter',
-        fund_id = 1
+        perks = [perk_list[0]],
+        name = 'Supporter'
     ),
     Tier(
         price = 10,
-        perks = ['Buy one get one free voucher for your next drink once we re-open'],
-        name = 'Strong Supporter',
-        fund_id = 1
+        perks = [perk_list[1]],
+        name = 'Strong Supporter'
     ),
     Tier(
         price = 25,
-        perks = ['Free entry to one live music event'],
-        name = 'Serious Supporter',
-        fund_id = 2
+        perks = [perk_list[2]],
+        name = 'Serious Supporter'
     ),
     Tier(
         price = 50,
-        perks = ['Free entry to two live music events', 'Buy one get one free voucher for your next drink once we re-open'],
-        name = 'Big Bwoi Supporter',
-        fund_id = 2
+        perks = [perk_list[3]],
+        name = 'Big Bwoi Supporter'
     ),
     Tier(
         price = 5,
-        perks = ['Thank you so much for your support!'],
-        name = 'Supporter',
-        fund_id = 3
+        perks = [perk_list[4]],
+        name = 'Supporter'
     ),
     Tier(
         price = 10,
-        perks = ['Free entry to one event'],
-        name = 'Strong Supporter',
-        fund_id = 3
+        perks = [perk_list[5]],
+        name = 'Strong Supporter'
     ),
     Tier(
         price = 25,
-        perks = ['Free entry to two events'],
-        name = 'Serious Supporter',
-        fund_id = 4
+        perks = [perk_list[6]],
+        name = 'Serious Supporter'
     ),
     Tier(
         price = 50,
-        perks = ['free entry to four events'],
-        name = 'Big Bwoi Supporter',
-        fund_id = 4
+        perks = [perk_list[7]],
+        name = 'Big Bwoi Supporter'
     ),
     
 ]
