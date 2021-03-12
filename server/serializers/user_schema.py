@@ -1,6 +1,9 @@
 from app import ma
 from models.user_model import User
 from marshmallow import fields
+from serializers.pledge_schema import PledgeSchema
+from serializers.endorsement_schema import EndorsementSchema
+
 
 class UserSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
@@ -10,7 +13,6 @@ class UserSchema(ma.SQLAlchemyAutoSchema):
         load_only = ('email', 'password')
 
     password = fields.String(required=True)
-    funds = fields.Nested('FundSchema', many=True)
-    conversations = fields.Nested('ConversationSchema', many=True)
     pledges = fields.Nested('PledgeSchema', many=True)
+    endorsements = fields.Nested('EndorsementSchema', many=True)
     

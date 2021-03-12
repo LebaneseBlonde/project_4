@@ -9,3 +9,5 @@ class EndorsementSchema(ma.SQLAlchemyAutoSchema):
         load_instance = True
 
     fund = fields.Nested('FundSchema')
+    
+    user = fields.Nested('UserSchema')
