@@ -1,5 +1,6 @@
 from app import db, bcrypt
 from models.base_model import Base
+from models.image_model import Image
 from sqlalchemy.ext.hybrid import hybrid_property
 from datetime import *
 from config.environment import secret
@@ -22,7 +23,7 @@ class Business(db.Model, Base):
     password_hash = db.Column(db.String(128), nullable=True)
 
     fund = db.relationship('Fund', backref='fund', cascade='all, delete')
-    
+    gallery = db.relationship('Image', backref='gallery', cascade='all, delete')
 
     @hybrid_property
     def password(self):
