@@ -3,7 +3,7 @@ from models.update_model import Update
 from marshmallow import fields
 
 class UpdateSchema(ma.SQLAlchemyAutoSchema):
-    class meta:
+    class Meta:
         model = Update
         load_instance = True
     

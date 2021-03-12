@@ -1,5 +1,6 @@
 from app import db
 from models.base_model import Base
+from models.perk_model import Perk
 
 class Tier(db.Model, Base):
 

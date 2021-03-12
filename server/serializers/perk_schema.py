@@ -3,7 +3,7 @@ from models.perk_model import Perk
 from marshmallow import fields
 
 class PerkSchema(ma.SQLAlchemyAutoSchema):
-    class meta:
+    class Meta:
         model = Perk
         load_instance = True
     
