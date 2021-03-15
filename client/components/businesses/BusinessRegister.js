@@ -8,7 +8,7 @@ import BusinessTierForm from './forms/BusinessTierForm'
 
 export default function BusinessRegister(history) {
 
-  const [formNum, setFormNum] = useState(1)
+  const [formNum, setFormNum] = useState(2)
 
   const [bioFormData, setBioFormData] = useState({
     name : '',
@@ -31,11 +31,11 @@ export default function BusinessRegister(history) {
     description : ''
   })
 
-  const [tierFormData, setTierFormData] = useState({
+  const [tierFormData, setTierFormData] = useState([{
     price : 0,
     name : '',
 
-  })
+  }])
 
   const [perkFormData, setPerkFormData] = useState({
     perk : ''
@@ -58,8 +58,9 @@ export default function BusinessRegister(history) {
     setFundFormData({...fundFormData, [event.target.name]: event.target.value})
   }
   
-  function handleTierChange(event) {
-    setTierFormData({...TierFormData, [event.target.name]: event.target.value})
+  function handleTierChange(event, number) {
+    console.log(number)
+    setTierFormData({...tierFormData, [tierFormData[number].name]: event.target.value})
   }
   
   function handlePerkChange(event) {
