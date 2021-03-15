@@ -1,35 +1,37 @@
-import React, { useEffect } from 'react'
-import { BrowserRouter, Switch, Link, Route } from 'react-router-dom'
+import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './styles/style.scss'
-import axios from 'axios'
 
-// ! Some starter code for your frontend, change this
-// ! however you like.
-const App = () => (
-  <BrowserRouter>
+import Home from './components/Home'
+import Navbar from './components/Navbar'
+import SearchResults from './components/SearchResults'
+import UserRegister from './components/UserRegister'
+import UserLogin from './components/UserLogin'
+import UserProfile from './components/UserProfile'
+import BusinessRegisterBio from './components/BusinessRegisterBio'
+import BusinessRegisterFund from './components/BusinessRegisterFund'
+import BusinessRegisterTiers from './components/BusinessRegisterTiers'
+import BusinessLogin from './components/BusinessLogin'
+import BusinessProfile from './components/BusinessProfile'
+import PaymentPage from './components/PaymentPage'
+
+const App = () => {
+  return <BrowserRouter>
+    <Navbar />
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/test/backend" component={TestBackend} />
+      <Route exact path='/user/register' component={UserRegister} />
+      <Route exact path='/user/login' component={UserLogin} />
+      <Route exact path='/user/profile' component={UserProfile} />
+      <Route exact path='/search/:query' component={SearchResults} />
+      <Route exact path='/business/register/bio' component={BusinessRegisterBio} />
+      <Route exact path='/business/register/fund' component={BusinessRegisterFund} />
+      <Route exact path='/business/register/tiers' component={BusinessRegisterTiers} />
+      <Route exact path='/business/login' component={BusinessLogin} />
+      <Route exact path='/business/:businessId' component={BusinessProfile} />
+      <Route exact path='/payment' component={PaymentPage} />
     </Switch>
   </BrowserRouter>
-)
-
-const Home = () => <Link to={'/test/backend'}>
-  Go to /hello/world page.
-</Link>
-
-// ! Just a little component to test that you can talk to your flask server, check if it
-// ! works in network tab.
-const TestBackend = () => {
-  useEffect(() => {
-    // ? This is going to try localhost:5000/api
-    axios.get('/api')
-      .then(({ data }) => console.log(data))
-  }, [])
-
-  return <p>
-    Hello World
-  </p>
 }
 
 export default App
