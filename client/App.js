@@ -14,8 +14,11 @@ import BusinessRegisterTiers from './components/BusinessRegisterTiers'
 import BusinessLogin from './components/BusinessLogin'
 import BusinessProfile from './components/BusinessProfile'
 import PaymentPage from './components/PaymentPage'
+import { connect } from 'react-redux'
 
-const App = () => {
+const App = (props) => {
+
+
   return <BrowserRouter>
     <Navbar />
     <Switch>
@@ -34,4 +37,10 @@ const App = () => {
   </BrowserRouter>
 }
 
-export default App
+function mapStateToProps(state){
+  return {
+    currentUser: state.currentUser
+  }
+} 
+
+export default connect(mapStateToProps)(App)
