@@ -26,7 +26,7 @@ const App = (props) => {
       <Route exact path='/user/login' component={UserLogin} />
       <Route exact path='/user/profile' component={UserProfile} />
       <Route exact path='/search/:query' component={SearchResults} />
-      <Route exact path='/business/register' component={BusinessRegister} />
+      <Route exact path='/business/register' component={BusinessRegisterBio} />
       <Route exact path='/business/login' component={BusinessLogin} />
       <Route exact path='/business/:businessId' component={BusinessProfile} />
       <Route exact path='/payment' component={PaymentPage} />
