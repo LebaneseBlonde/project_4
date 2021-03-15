@@ -1,18 +1,19 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import 'bulma'
 import './styles/style.scss'
 
 import Home from './components/Home'
 import Navbar from './components/Navbar'
 import SearchResults from './components/SearchResults'
-import UserRegister from './components/UserRegister'
+import UserRegister from './components/users/UserRegister'
 import UserLogin from './components/users/UserLogin'
-import UserProfile from './components/UserProfile'
-import BusinessRegisterBio from './components/BusinessRegister'
-import BusinessRegisterFund from './components/BusinessRegisterFund'
-import BusinessRegisterTiers from './components/BusinessRegisterTiers'
-import BusinessLogin from './components/BusinessLogin'
-import BusinessProfile from './components/BusinessProfile'
+import UserProfile from './components/users/UserProfile'
+import BusinessRegisterBio from './components/businesses/BusinessRegister'
+import BusinessRegisterFund from './components/businesses/BusinessRegisterFund'
+import BusinessRegisterTiers from './components/businesses/BusinessRegisterTiers'
+import BusinessLogin from './components/businesses/BusinessLogin'
+import BusinessProfile from './components/businesses/BusinessProfile'
 import PaymentPage from './components/PaymentPage'
 import { connect } from 'react-redux'
 
@@ -27,7 +28,7 @@ const App = (props) => {
       <Route exact path='/user/login' component={UserLogin} />
       <Route exact path='/user/profile' component={UserProfile} />
       <Route exact path='/search/:query' component={SearchResults} />
-      <Route exact path='/business/register' component={BusinessRegister} />
+      <Route exact path='/business/register' component={BusinessRegisterBio} />
       <Route exact path='/business/login' component={BusinessLogin} />
       <Route exact path='/business/:businessId' component={BusinessProfile} />
       <Route exact path='/payment' component={PaymentPage} />
