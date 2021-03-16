@@ -3,6 +3,18 @@ import { Link } from 'react-router-dom'
 
 export default function HomeFeatured({businesses, loading}) {
 
+  
+  useEffect(() => {
+    // console.log(businesses)
+    // console.log(businesses.message)
+  }, [businesses])
+
+  if (businesses.length === 0) {
+    return <div>
+      No businesses found. Try another search query
+    </div>
+  }
+
   if (loading) {
     return <div>
       loading
