@@ -11,7 +11,7 @@ class User(db.Model, Base):
     username = db.Column(db.String(16), nullable=False, unique=True)
     email = db.Column(db.Text, nullable=False, unique=True)
     password_hash = db.Column(db.String(128), nullable=True)
-    pledge = db.relationship('Pledge', backref='pledge', cascade='all, delete')
+    pledges = db.relationship('Pledge', backref='pledge', cascade='all, delete')
     endorsement = db.relationship('Endorsement', backref='endorsement', cascade='all, delete')
 
 
@@ -31,7 +31,8 @@ class User(db.Model, Base):
         payload = {
             'sub': self.id,
             'iat': datetime.utcnow(),
-            'exp': datetime.utcnow() + timedelta(days=1)
+            'exp': datetime.utcnow() + timedelta(days=1),
+            'isBusiness' : 'false'
         }
 
         token = jwt.encode(payload, secret, 'HS256')
