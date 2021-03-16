@@ -1,3 +1,6 @@
+.reactLink {
+  text-decoration: none;
+}
 #homePage {
   display:flex;
   flex-direction:column;
@@ -9,7 +12,7 @@
   justify-content: space-around;
   align-items: center;
   height: 600px;
-  border:1px solid black;
+  border-top:1px solid black;
 }
 #homePageImage {
   width: 450px;
