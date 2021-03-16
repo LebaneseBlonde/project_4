@@ -17,7 +17,6 @@ export default function Search() {
     async function getBusinesses() {
 
       const {data} = await axios.get('/api/businesses/All Categories/london')
-      console.log(data)
       updateBusinesses(data)
       updateLoading(false)
     }
@@ -31,13 +30,15 @@ export default function Search() {
 
   async function handleSubmit(event) {
     event.preventDefault()
+    updateBusinesses([])
+    updateLoading(true)
     try {
       const { data } = await axios.get(`/api/businesses/${formData.category}/${formData.query}`)
       updateBusinesses(data)
       updateLoading(false)
 
     } catch (err) {
-      console.log(err.response.data)
+      console.log(err)
     }
   }
 
@@ -52,6 +53,21 @@ export default function Search() {
       <h2>Refine your search</h2>
       <form id='searchForm' onSubmit={handleSubmit}>
 
+        <div className='select'>
+          <select 
+          onChange={handleChange}
+          name='category'
+          value={formData['category']}>
+            <option>All Categories</option>
+            <option>Pubs & Bars</option>
+            <option>Restaurants</option>
+            <option>Cafés & Delis</option>
+            <option>Retail</option>
+            <option>Venues</option>
+            <option>The Arts</option>
+          </select>
+        </div>
+
         <div className='field'>
           <div className='control'>
             <input
@@ -64,10 +80,15 @@ export default function Search() {
             />
           </div>
         </div>
+
+        <button className="button mt-5 is-warning">Search</button>
+
       </form>
     </section>
 
-    <HomeFeatured businesses={businesses} loading={loading}/>
+    <section id='searchPageResults'>
+      <HomeFeatured businesses={businesses} loading={loading}/>
+    </section>
 
   </div>
 }
