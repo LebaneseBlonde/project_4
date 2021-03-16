@@ -4,25 +4,28 @@ export default function BusinessTierForm({ handlePerkChange, handleTierChange, t
 
   function addTier() {
     setTierFormData([...tierFormData, {price: 0, name: ''}])
-    setPerksPerTier([...perksPerTier, ['perk']])
+    setPerkFormData([...perkFormData, [{perk: ''}]])
+    // console.log(perkFormData);
   }
 
   function addPerk(index) {
     setPerkFormData([...perkFormData, {perk: ''}])
-    const newPerksPerTier = [...perksPerTier]
-    newPerksPerTier[index].push('perk')
-    setPerksPerTier(newPerksPerTier)
+    const newPerksPerTier = [...perkFormData]
+    newPerksPerTier[index].push({ perk: '' })
+    setPerkFormData(newPerksPerTier)
+    // console.log(perkFormData);
+
   }
 
-  const [perksPerTier, setPerksPerTier] = useState([['perk']])
+  // const [perksPerTier, setPerksPerTier] = useState([['perk']])
 
   return <div>
     {tierFormData.map((tier, index) => {
       return <div key={index}>
-        <TierForm index={index} handleTierChange={handleTierChange} />
-        {perksPerTier[index].map((perk, index2) => {
+        <TierForm index={index} handleTierChange={(event) => handleTierChange(event, index)} />
+        {perkFormData[index].map((perk, index2) => {
           return <div key={index2}>
-            <PerkForm index2={index2} handlePerkChange={handlePerkChange} />
+            <PerkForm index2={index2} handlePerkChange={(event) => handlePerkChange(event, index, index2)} />
           </div>
         })}
         <button onClick={() => addPerk(index)}>Add perk</button>
