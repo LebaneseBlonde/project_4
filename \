@@ -1,0 +1,9 @@
+tier system still buggered WIP 
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch development
+# Changes to be committed:
+#	modified:   client/components/Navbar.js
+#	modified:   client/components/businesses/forms/BusinessTierForm.js
+#

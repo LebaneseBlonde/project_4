@@ -8,7 +8,7 @@ import BusinessTierForm from './forms/BusinessTierForm'
 
 export default function BusinessRegister(history) {
 
-  const [formNum, setFormNum] = useState(1)
+  const [formNum, setFormNum] = useState(2)
 
   const [bioFormData, setBioFormData] = useState({
     name : '',
@@ -31,15 +31,17 @@ export default function BusinessRegister(history) {
     description : ''
   })
 
-  const [tierFormData, setTierFormData] = useState({
+  const [tierFormData, setTierFormData] = useState([{
     price : 0,
     name : '',
 
-  })
+  }])
 
-  const [perkFormData, setPerkFormData] = useState({
+  const [perkFormData, setPerkFormData] = useState([{
     perk : ''
-  })
+  }])
+
+  // const [fundId, setFundId] = useState('')
 
   function getBusinessId () {
     if (!localStorage) return
@@ -58,12 +60,22 @@ export default function BusinessRegister(history) {
     setFundFormData({...fundFormData, [event.target.name]: event.target.value})
   }
   
-  function handleTierChange(event) {
-    setTierFormData({...TierFormData, [event.target.name]: event.target.value})
+  function handleTierChange(event, index) {
+    const newTierFormData = [...tierFormData]
+    newTierFormData[index] = {
+      ...newTierFormData[index],
+      [event.target.name]: event.target.value
+    }
+    setTierFormData(newTierFormData)
   }
   
-  function handlePerkChange(event) {
-    setPerkFormData({...PerkFormData, [event.target.name]: event.target.value})
+  function handlePerkChange(event, index2) {
+    const newPerkFormData = [...perkFormData]
+    newPerkFormData[index2] = {
+      ...newPerkFormData[index2],
+      [event.target.name]: event.target.value
+    }
+    setPerkFormData(newPerkFormData)
   }
 
   async function handleBioSubmit(event) {
@@ -90,12 +102,29 @@ export default function BusinessRegister(history) {
     const token = localStorage.getItem('token')
 
     try {
-      await axios.post(`/api/businesses/${businessId}/funds`, fundFormData, {
+      const { data } = await axios.post(`/api/businesses/${businessId}/funds`, fundFormData, {
         headers: { Authorization: `Bearer ${token}` }
       })
+      if (localStorage) localStorage.setItem('fundId', data.id)
       setFormNum(2)
     } catch (err) {
       console.log(err)
+    }
+  }
+
+  async function handleTierPerkSubmit(event) {
+    event.preventDefault()
+    const fundId = localStorage.getItem('fundId')
+    const token = localStorage.getItem('token')
+    try {
+      tierFormData.map(async (tier) => {
+        const { data } = await axios.post(`/api/funds/${fundId}/tiers`, tier, {
+          headers: { Authorization: `Bearer ${token}` }
+        })
+        
+      })
+    } catch(err) {
+      console.log(err);
     }
   }
 
@@ -114,7 +143,10 @@ export default function BusinessRegister(history) {
       handleTierChange={handleTierChange}
       handlePerkChange={handlePerkChange}
       tierFormData={tierFormData}
+      setTierFormData={setTierFormData}
+      setPerkFormData={setPerkFormData}
       perkFormData={perkFormData}
+      handleTierPerkSubmit={handleTierPerkSubmit}
     />}
   </div>
 }
