@@ -69,10 +69,13 @@ def get_businesses(category, query):
 
             businesses_by_city = Business.query.filter(Business.address_city.ilike(f'%{term}%')).all()
 
+            businesses_by_area = Business.query.filter(Business.address_2.ilike(f'%{term}%')).all()
+
             businesses_by_postcode = Business.query.filter(Business.address_postcode.ilike(f'%{term}%')).all()
 
             queried_businesses.extend(businesses_by_name)
             queried_businesses.extend(businesses_by_city)
+            queried_businesses.extend(businesses_by_area)
             queried_businesses.extend(businesses_by_postcode)
 
         else:
@@ -81,12 +84,14 @@ def get_businesses(category, query):
 
             businesses_by_city = Business.query.filter(Business.address_city.ilike(f'%{term}%'), Business.category == category).all()
 
+            businesses_by_area = Business.query.filter(Business.address_2.ilike(f'%{term}%'), Business.category == category).all()
+
             businesses_by_postcode = Business.query.filter(Business.address_postcode.ilike(f'%{term}%'), Business.category == category).all()
             
             queried_businesses.extend(businesses_by_name)
             queried_businesses.extend(businesses_by_city)
+            queried_businesses.extend(businesses_by_area)
             queried_businesses.extend(businesses_by_postcode)
-
 
     if len(queried_businesses) == 0:
         return {'message': 'No businesses found'}, 404
