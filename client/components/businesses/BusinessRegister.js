@@ -41,6 +41,8 @@ export default function BusinessRegister(history) {
     perk : ''
   }])
 
+  // const [fundId, setFundId] = useState('')
+
   function getBusinessId () {
     if (!localStorage) return
     const token = localStorage.getItem('token')
@@ -58,7 +60,6 @@ export default function BusinessRegister(history) {
     setFundFormData({...fundFormData, [event.target.name]: event.target.value})
   }
   
-
   function handleTierChange(event, index) {
     const newTierFormData = [...tierFormData]
     newTierFormData[index] = {
@@ -68,10 +69,10 @@ export default function BusinessRegister(history) {
     setTierFormData(newTierFormData)
   }
   
-  function handlePerkChange(event, index) {
+  function handlePerkChange(event, index2) {
     const newPerkFormData = [...perkFormData]
-    newPerkFormData[index] = {
-      ...newPerkFormData[index],
+    newPerkFormData[index2] = {
+      ...newPerkFormData[index2],
       [event.target.name]: event.target.value
     }
     setPerkFormData(newPerkFormData)
@@ -101,12 +102,29 @@ export default function BusinessRegister(history) {
     const token = localStorage.getItem('token')
 
     try {
-      await axios.post(`/api/businesses/${businessId}/funds`, fundFormData, {
+      const { data } = await axios.post(`/api/businesses/${businessId}/funds`, fundFormData, {
         headers: { Authorization: `Bearer ${token}` }
       })
+      if (localStorage) localStorage.setItem('fundId', data.id)
       setFormNum(2)
     } catch (err) {
       console.log(err)
+    }
+  }
+
+  async function handleTierPerkSubmit(event) {
+    event.preventDefault()
+    const fundId = localStorage.getItem('fundId')
+    const token = localStorage.getItem('token')
+    try {
+      tierFormData.map(async (tier) => {
+        const { data } = await axios.post(`/api/funds/${fundId}/tiers`, tier, {
+          headers: { Authorization: `Bearer ${token}` }
+        })
+        
+      })
+    } catch(err) {
+      console.log(err);
     }
   }
 
@@ -128,6 +146,7 @@ export default function BusinessRegister(history) {
       setTierFormData={setTierFormData}
       setPerkFormData={setPerkFormData}
       perkFormData={perkFormData}
+      handleTierPerkSubmit={handleTierPerkSubmit}
     />}
   </div>
 }
