@@ -35,6 +35,20 @@ def login_business():
     return {'token': token, 'message': 'welcome back'}
 
 
+@router.route('/businesses/<int:business_id>')
+@secure_route_business
+def get_single_business(business_id):
+    business = Business.query.get(business_id)
+
+    if not business:
+        return { 'message' : 'No business found.' }
+
+    if g.current_user.id != business_id:
+        return { 'message' : 'Unauthorized access.' }
+
+    return business_schema.jsonify(business)
+
+
 @router.route('/businesses/<category>/<query>', methods=['GET'])
 def get_businesses(category, query):
 

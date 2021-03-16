@@ -7,14 +7,14 @@ user_list = [
         username = 'ollie',
         email = 'ollie@ollie.com',
         password = 'password',
-        pledge = [pledge_list[0], pledge_list[1], pledge_list[2], pledge_list[3]],
+        pledges = [pledge_list[0], pledge_list[1], pledge_list[2], pledge_list[3]],
         endorsement = [endorsement_list[0], endorsement_list[1]]
     ),
     User(
         username = 'cal',
         email = 'cal@cal.com',
         password = 'password',
-        pledge = [pledge_list[4], pledge_list[5], pledge_list[6], pledge_list[7], pledge_list[8]],
+        pledges = [pledge_list[4], pledge_list[5], pledge_list[6], pledge_list[7], pledge_list[8]],
         endorsement = [endorsement_list[2]]
     )
 ]

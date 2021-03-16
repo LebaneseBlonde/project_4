@@ -40,7 +40,8 @@ class Business(db.Model, Base):
         payload = {
             'sub': self.id,
             'iat': datetime.utcnow(),
-            'exp': datetime.utcnow() + timedelta(days=1)
+            'exp': datetime.utcnow() + timedelta(days=1),
+            'isBusiness': 'true'
         }
 
         token = jwt.encode(payload, secret, 'HS256')

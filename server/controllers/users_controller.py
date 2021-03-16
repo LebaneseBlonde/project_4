@@ -32,7 +32,15 @@ def user_login():
 
     return { 'token' : token, 'message' : 'Sign in successful.' }
 
-@router.route('/users/profile', methods=['GET'])
+@router.route('/users/<int:user_id>', methods=['GET'])
 @secure_route_user
-def get_user_profile():
-    return user_schema.jsonify(g.current_user)
+def get_user_profile(user_id):
+    user = User.query.get(user_id)
+
+    if not user:
+        return { 'message' : 'No user found.' }
+
+    if g.current_user.id != user_id:
+        return { 'message' : 'Unauthorized access.' }
+
+    return user_schema.jsonify(user)
