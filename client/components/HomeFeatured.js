@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import {getFundsRaised} from '../lib/utilityFunctions'
 
 export default function HomeFeatured({businesses, loading}) {
-
-  
-  useEffect(() => {
-    // console.log(businesses)
-    // console.log(businesses.message)
-  }, [businesses])
 
   if (businesses.length === 0) {
     return <div>
@@ -25,7 +20,7 @@ export default function HomeFeatured({businesses, loading}) {
     <div id='featuredResults'>
       {businesses.map((business, index) => {
 
-        const fundPercentage = Math.floor(business.fund[0].funds_raised * (100 / business.fund[0].fund_goal))
+        const fundPercentage = Math.floor(getFundsRaised(business) * (100 / business.fund[0].fund_goal))
         let displayPercentage = 0
         if (fundPercentage > 100) {displayPercentage = 100}
         else {displayPercentage = fundPercentage}
