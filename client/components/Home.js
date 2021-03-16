@@ -5,6 +5,21 @@ import HomeFeatured from './HomeFeatured.js'
 
 export default function Home() {
 
+  const [businesses, updateBusinesses] = useState([])
+  const [loading, updateLoading] = useState(true)
+
+  useEffect(() => {
+
+    async function getBusinesses() {
+
+      const {data} = await axios.get('/api/businesses/All Categories/london')
+      console.log(data)
+      updateBusinesses(data)
+      updateLoading(false)
+    }
+    getBusinesses()
+  }, [])
+
   return <div id='homePage'>
 
     <section id='homePageTop'>
@@ -31,16 +46,18 @@ export default function Home() {
             <p>Pre-sell your services now, support your staff and deliver when London re-opens</p>
           </div> 
         </div>
-      </Link>   
-      <div className='homePageInfoCard'>
-        <div className='imageArea'>
-          <img className='homePageIcon' src='../images/pledge.png' alt='crowdfunding icon'/>
+      </Link>
+      <Link className='reactLink' to='/search'>  
+        <div className='homePageInfoCard'>
+          <div className='imageArea'>
+            <img className='homePageIcon' src='../images/pledge.png' alt='crowdfunding icon'/>
+          </div> 
+          <div className='infoCardTextArea'>
+            <h3 className='infoCardTitle'>Start supporting your local businesses</h3>
+            <p>People across London are paying for goods and services in advance to local businesses in their community. Pledge to support yours today.</p>
+          </div>
         </div> 
-        <div className='infoCardTextArea'>
-          <h3 className='infoCardTitle'>Start supporting your local businesses</h3>
-          <p>People across London are paying for goods and services in advance to local businesses in their community. Pledge to support yours today.</p>
-        </div>
-      </div>      
+      </Link>      
       <div className='homePageInfoCard'>
         <div className='imageArea'>
           <img className='homePageIcon' src='../images/inform.png' alt='inform icon'/>
@@ -54,7 +71,8 @@ export default function Home() {
 
     <section id='homePageBottom'>
       <h2>Businesses live and funding</h2>
-      <HomeFeatured />
+      <HomeFeatured businesses={businesses} loading={loading}/>
     </section>
+
   </div>
 }
