@@ -25,7 +25,7 @@ def create_tier(fund_id):
     tier.fund_id = fund_id
     tier.save()
     fund = Fund.query.get(fund_id)
-    return fund_schema.jsonify(fund), 201
+    return tier_schema.jsonify(tier), 201
 
 @router.route('/funds/<int:fund_id>/tiers/<int:tier_id>', methods=['DELETE'])
 @secure_route_business

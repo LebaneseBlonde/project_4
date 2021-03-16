@@ -22,11 +22,10 @@ export default function BusinessTierForm({ handlePerkChange, handleTierChange, t
   return <div>
     {tierFormData.map((tier, index) => {
       return <div key={index}>
-        <TierForm index={index} handleTierChange={handleTierChange} />
+        <TierForm index={index} handleTierChange={(event) => handleTierChange(event, index)} />
         {perkFormData[index].map((perk, index2) => {
-          console.log(perkFormData[index])
           return <div key={index2}>
-            <PerkForm index2={index2} handlePerkChange={handlePerkChange} />
+            <PerkForm index2={index2} handlePerkChange={(event) => handlePerkChange(event, index, index2)} />
           </div>
         })}
         <button onClick={() => addPerk(index)}>Add perk</button>
