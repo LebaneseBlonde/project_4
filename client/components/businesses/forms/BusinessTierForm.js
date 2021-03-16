@@ -5,7 +5,6 @@ export default function BusinessTierForm({ handlePerkChange, handleTierChange, t
   function addTier() {
     setTierFormData([...tierFormData, {price: 0, name: ''}])
     setPerkFormData([...perkFormData, [{perk: ''}]])
-    // console.log(perkFormData);
   }
 
   function addPerk(index) {
@@ -13,7 +12,6 @@ export default function BusinessTierForm({ handlePerkChange, handleTierChange, t
     const newPerksPerTier = [...perkFormData]
     newPerksPerTier[index].push({ perk: '' })
     setPerkFormData(newPerksPerTier)
-    // console.log(perkFormData);
 
   }
 
