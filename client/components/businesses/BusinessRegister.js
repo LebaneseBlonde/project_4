@@ -37,9 +37,9 @@ export default function BusinessRegister(history) {
 
   }])
 
-  const [perkFormData, setPerkFormData] = useState([{
+  const [perkFormData, setPerkFormData] = useState([[{
     perk : ''
-  }])
+  }]])
 
   // const [fundId, setFundId] = useState('')
 
