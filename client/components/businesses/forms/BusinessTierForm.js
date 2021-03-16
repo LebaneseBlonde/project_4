@@ -1,47 +1,45 @@
 import React, {useState} from 'react'
 
+export default function BusinessTierForm({ handlePerkChange, handleTierChange, tierFormData, perkFormData, setTierFormData, setPerkFormData }) {
 
-const AddButton = ({showTier}) => {
-  console.log('hullo');
+  function addTier() {
+    setTierFormData([...tierFormData, {price: 0, name: ''}])
+  }
 
-    return <div>
-      <button>Add another tier</button>
-    </div>
-
-}
-
-
-
-export default function BusinessTierForm({ handlePerkChange, handleTierChange, tierFormData, perkFormData }) {
-  const [tiers, setTiers] = useState(['tier1'])
-  const [showTier, setShowTier] = useState(0)
+  function addPerk() {
+    setPerkFormData([...perkFormData, {perk: ''}])
+  }
 
   return <div>
-    {tiers.map((tier, index) => {
-      
-      return <div key={index} className="field">
-        <label className="label">
-          <p>Tier {index + 1}</p>
-        </label>
-        <div className="control">
-          <input
-            className="input"
-            type="text"
-            value={tierFormData[index].name}
-            onChange={(event, index) => {
-              const number = index
-              handleTierChange(event, number)
-            }}
-          />
-        </div>
+    {tierFormData.map((tier, index) => {
+      // const perkToMap = ['perk']
+      return <div key={index}>
+        <TierForm index={index} handleTierChange={handleTierChange} />
+        {perkFormData.map((perk, index) => {
+          return <div key={index}>
+            <PerkForm index={index} handlePerkChange={handlePerkChange} />
+          </div>
+        })}
       </div>
     })}
-    <div>
-      <button onClick={() => setShowTier(showTier + 1)}>Add new tier</button>
-      <div>
-        for (let index = 0; index < showTier; index++)  <AddButton showTier={showTier} /> 
-      </div>
-    </div>
+    <button onClick={addPerk}>Add perk</button>
+    <button onClick={addTier}>Add tier</button>
+  </div>
+
+}
+
+function TierForm({index, handleTierChange}) {
+  return <div> 
+    <p>Tier {index + 1}</p>
+    <input onChange={(event) => handleTierChange(event, index)} placeholder='Tier name' name='name'></input>
+    <input onChange={(event) => handleTierChange(event, index)} placeholder='Tier price' name='price'></input>
+  </div> 
+}
+
+function PerkForm({index, handlePerkChange}) {
+  return <div>
+    <p>Perk {index + 1}</p>
+    <input onChange={(event => handlePerkChange(event, index))} placeholder='Perk details' name='perk'></input>
   </div>
 }
-// 
+

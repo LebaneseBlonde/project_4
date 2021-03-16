@@ -37,9 +37,9 @@ export default function BusinessRegister(history) {
 
   }])
 
-  const [perkFormData, setPerkFormData] = useState({
+  const [perkFormData, setPerkFormData] = useState([{
     perk : ''
-  })
+  }])
 
   function getBusinessId () {
     if (!localStorage) return
@@ -58,13 +58,23 @@ export default function BusinessRegister(history) {
     setFundFormData({...fundFormData, [event.target.name]: event.target.value})
   }
   
-  function handleTierChange(event, number) {
-    console.log(number)
-    setTierFormData({...tierFormData, [tierFormData[number].name]: event.target.value})
+
+  function handleTierChange(event, index) {
+    const newTierFormData = [...tierFormData]
+    newTierFormData[index] = {
+      ...newTierFormData[index],
+      [event.target.name]: event.target.value
+    }
+    setTierFormData(newTierFormData)
   }
   
-  function handlePerkChange(event) {
-    setPerkFormData({...PerkFormData, [event.target.name]: event.target.value})
+  function handlePerkChange(event, index) {
+    const newPerkFormData = [...perkFormData]
+    newPerkFormData[index] = {
+      ...newPerkFormData[index],
+      [event.target.name]: event.target.value
+    }
+    setPerkFormData(newPerkFormData)
   }
 
   async function handleBioSubmit(event) {
@@ -115,6 +125,8 @@ export default function BusinessRegister(history) {
       handleTierChange={handleTierChange}
       handlePerkChange={handlePerkChange}
       tierFormData={tierFormData}
+      setTierFormData={setTierFormData}
+      setPerkFormData={setPerkFormData}
       perkFormData={perkFormData}
     />}
   </div>
