@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
 import axios from 'axios'
 import HomeFeatured from './HomeFeatured.js'
 
-function Home(props) {
+export default function Home() {
 
-  const currentUser = props.currentUser
-  setTimeout(()=> {
-    getLoggedInUser(props.userChanged)
-  }, 1000)
-  
   return <div id='homePage'>
 
     <section id='homePageTop'>
@@ -27,7 +21,7 @@ function Home(props) {
     </section>
 
     <section id='homePageMiddle'>
-      <Link to='/business/register'>
+      <Link className='reactLink' to='/business/register'>
         <div className='homePageInfoCard'>
           <div className='imageArea'>
             <img className='homePageIcon' src='../images/business.png' alt='business icon'/>
@@ -64,39 +58,3 @@ function Home(props) {
     </section>
   </div>
 }
-
-async function getLoggedInUser(userChanged) {
-  if (!localStorage) return
-  const token = localStorage.getItem('token')
-  if (!token) return
-  const payloadAsString = atob(token.split('.')[1])
-  const payloadAsObject = JSON.parse(payloadAsString)
-  const id = payloadAsObject.sub
-  if (payloadAsObject.isBusiness != 'true') {
-    const {data} = await axios.get(`/api/users/${id}`, {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-    userChanged(data)
-  } else {
-    const {data} = await axios.get(`/api/businesses/${id}`)
-    userChanged(data)
-  }
-
-}
-
-function mapStateToProps(state){
-  return {
-    currentUser: state.currentUser
-  }
-} 
-
-function mapDispatchToProps(dispatch) {
-  return {
-    userChanged: (account) => {
-      const action = {type: 'USER_CHANGE', user: account}
-      dispatch(action)
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
