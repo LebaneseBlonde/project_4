@@ -13,7 +13,6 @@ export default function Home() {
     async function getBusinesses() {
 
       const {data} = await axios.get('/api/businesses/All Categories/london')
-      console.log(data)
       updateBusinesses(data)
       updateLoading(false)
     }

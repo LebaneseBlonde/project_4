@@ -15,13 +15,22 @@ function Navbar(props) {
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
           <Link className="navbar-item" to='/'><div> Home </div></Link>
-          <div className="navbar-item has-dropdown is-hoverable">
+          {currentUser && <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link"> Your account </a>
             <div className="navbar-dropdown">
-              <a className="navbar-item"> Profile </a>
-              <a className="navbar-item"> Settings </a>
+              <Link className="navbar-item" to='/user/profile'><div className="navbar-item"> Profile </div></Link>
+              <Link className="navbar-item" to='/user/update_profile'><div className="navbar-item"> Settings </div></Link>
             </div>
-          </div>
+          </div>}
+          {!currentUser && <div className="navbar-item has-dropdown is-hoverable">
+            <a className="navbar-link"> Login/Register </a>
+            <div className="navbar-dropdown">
+              <Link className="navbar-item" to='/user/login'><div className="navbar-item"> User Login </div></Link>
+              <Link className="navbar-item" to='/business/login'><div className="navbar-item"> Business Login </div></Link>
+              <Link className="navbar-item" to='/user/register'><div className="navbar-item"> Register User </div></Link>
+              <Link className="navbar-item" to='/business/register'><div className="navbar-item"> Register Business </div></Link>
+            </div>
+          </div>}
         </div>
       </div>
     </nav>

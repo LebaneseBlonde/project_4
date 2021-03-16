@@ -6,7 +6,7 @@ import BusinessBioForm from './forms/BusinessBioForm'
 import BusinessFundForm from './forms/BusinessFundForm'
 import BusinessTierForm from './forms/BusinessTierForm'
 
-export default function BusinessRegister(history) {
+export default function BusinessRegister({history}) {
 
   const [formNum, setFormNum] = useState(0)
 
@@ -75,7 +75,6 @@ export default function BusinessRegister(history) {
       ...newPerkFormData[index],
     ]
     newPerkFormData[index][index2] = {perk: event.target.value}
-    console.log(newPerkFormData)
     setPerkFormData(newPerkFormData)
   }
 
@@ -129,6 +128,7 @@ export default function BusinessRegister(history) {
           })
         })
       })
+      history.push('/')
     } catch(err) {
       console.log(err);
     }

@@ -25,7 +25,7 @@ export default function UserRegister({history}) {
       history.push('/user/login')
 
     } catch (err) {
-      console.log(err.response.data)
+      console.log(err)
     }
   }
 

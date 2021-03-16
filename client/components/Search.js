@@ -17,7 +17,6 @@ export default function Search() {
     async function getBusinesses() {
 
       const {data} = await axios.get('/api/businesses/All Categories/london')
-      console.log(data)
       updateBusinesses(data)
       updateLoading(false)
     }
@@ -37,7 +36,7 @@ export default function Search() {
       updateLoading(false)
 
     } catch (err) {
-      console.log(err.response.data)
+      console.log(err)
     }
   }
 
