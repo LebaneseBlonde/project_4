@@ -11,7 +11,6 @@ function Navbar(props) {
   }, 1000)
 
   const isBusiness = localStorage.getItem('isBusiness')
-  console.log(isBusiness)
 
   return <div>
     <nav className="navbar is-light is-transparent" role="navigation" aria-label="main navigation">
