@@ -45,7 +45,7 @@ export default function HomeFeatured({businesses, loading}) {
                 </div>
             </div>           
           </div>
-
+          
         </Link>
       })}
     </div>

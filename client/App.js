@@ -5,6 +5,7 @@ import './styles/style.scss'
 import './styles/homePageStyle.scss'
 import './styles/searchStyle.scss'
 import './styles/bioStyle.scss'
+import './styles/heroSection.scss'
 
 
 
