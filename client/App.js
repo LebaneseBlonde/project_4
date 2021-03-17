@@ -37,8 +37,8 @@ const App = () => {
       <Route exact path='/search' component={Search} />
       <Route exact path='/business/register' component={BusinessRegister} />
       <Route exact path='/business/login' component={BusinessLogin} />
-      <Route exact path='/business/:businessId' component={BusinessProfile} />
       <Route exact path='/payment' component={PaymentPage} />
+      <Route exact path='/business/:businessId' component={BusinessProfile} />
     </Switch>
   </BrowserRouter>
 }

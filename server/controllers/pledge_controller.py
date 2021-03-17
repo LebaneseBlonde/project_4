@@ -15,12 +15,23 @@ router = Blueprint(__name__, 'pledges')
 @router.route('/funds/<int:fund_id>/pledges', methods=['POST'])
 @secure_route_user
 def create_pledge(fund_id):
+
     pledge_dictionary = request.json
-    pledge = pledge_schema.load(pledge_dictionary)
-    pledge.user_id = g.current_user.id
+
     fund = Fund.query.get(fund_id)
-    pledge.fund_id = fund_id
+
+    user = User.query.get(g.current_user.id) 
+
+    pledge = pledge_schema.load(pledge_dictionary)
+
     pledge.save()
+ 
+    fund.pledges.append(pledge)
+    fund.save()
+
+    user.pledges.append(pledge)
+    user.save()
+
     return fund_schema.jsonify(fund), 201
 
 @router.route('/funds/<int:fund_id>/pledges/<int:pledge_id>', methods=['DELETE'])
