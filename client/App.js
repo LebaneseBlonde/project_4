@@ -23,9 +23,8 @@ import BusinessRegister from './components/businesses/BusinessRegister'
 import BusinessLogin from './components/businesses/BusinessLogin'
 import BusinessProfile from './components/businesses/BusinessProfile'
 import PaymentPage from './components/PaymentPage'
-import { connect } from 'react-redux'
 
-const App = (props) => {
+const App = () => {
 
 
   return <BrowserRouter>
@@ -34,7 +33,7 @@ const App = (props) => {
       <Route exact path="/" component={Home} />
       <Route exact path='/user/register' component={UserRegister} />
       <Route exact path='/user/login' component={UserLogin} />
-      <Route exact path='/user/profile' component={UserProfile} />
+      <Route exact path='/user/dashboard' component={UserProfile} />
       <Route exact path='/search' component={Search} />
       <Route exact path='/business/register' component={BusinessRegister} />
       <Route exact path='/business/login' component={BusinessLogin} />
@@ -44,10 +43,4 @@ const App = (props) => {
   </BrowserRouter>
 }
 
-function mapStateToProps(state){
-  return {
-    currentUser: state.currentUser
-  }
-} 
-
-export default connect(mapStateToProps)(App)
+export default App
