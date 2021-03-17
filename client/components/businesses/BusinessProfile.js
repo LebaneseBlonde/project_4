@@ -13,7 +13,7 @@ export default function BusinessProfile() {
   return <div>
     <HeroSection />
     <TiersSection />
-    <BioSection />
+    <BioSection business={business} loading={loading}/>
     <UpdatesSection />
     <EndorsementsSection />
   </div>

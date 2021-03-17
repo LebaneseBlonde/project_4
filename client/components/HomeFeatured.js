@@ -17,7 +17,9 @@ export default function HomeFeatured({businesses, loading}) {
   }
 
   return <div id='homePageFeatured'>
+
     <div id='featuredResults'>
+
       {businesses.map((business, index) => {
 
         const fundPercentage = Math.floor(getFundsRaised(business) * (100 / business.fund[0].fund_goal))
@@ -47,6 +49,7 @@ export default function HomeFeatured({businesses, loading}) {
         </Link>
       })}
     </div>
+    
   </div>
 
 

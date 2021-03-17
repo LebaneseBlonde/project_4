@@ -9,7 +9,7 @@ class BusinessSchema(ma.SQLAlchemyAutoSchema):
         model = Business
         load_instance = True
         exclude = ('password_hash',)
-        load_only = ('email', 'password')
+        load_only = ('password')
 
     password = fields.String(required=True)
     fund = fields.Nested('FundSchema', many=True)
