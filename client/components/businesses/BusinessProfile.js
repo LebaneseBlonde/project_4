@@ -26,11 +26,11 @@ export default function BusinessProfile({match}) {
   }, [])
     
 
-  return <div>
+  return <div id='businessProfilePage'>
     <HeroSection business={business} loading={loading} isBusiness={isBusiness} />
     <TiersSection business={business} loading={loading} isBusiness={isBusiness} />
-    {/* <BioSection business={business} loading={loading} isBusiness={isBusiness} />
+    <BioSection business={business} loading={loading} isBusiness={isBusiness} />
     <UpdatesSection business={business} loading={loading} isBusiness={isBusiness} />
-    <EndorsementsSection business={business} loading={loading} isBusiness={isBusiness} /> */}
+    <EndorsementsSection business={business} loading={loading} isBusiness={isBusiness} />
   </div>
 }
