@@ -36,15 +36,15 @@ def login_business():
 
 
 @router.route('/businesses/<int:business_id>')
-@secure_route_business
+# @secure_route_business
 def get_single_business(business_id):
     business = Business.query.get(business_id)
 
     if not business:
         return { 'message' : 'No business found.' }
 
-    if g.current_user.id != business_id:
-        return { 'message' : 'Unauthorized access.' }
+    # if g.current_user.id != business_id:
+    #     return { 'message' : 'Unauthorized access.' }
 
     return business_schema.jsonify(business)
 

@@ -13,12 +13,13 @@ export default function BusinessProfile({match}) {
   const businessId = match.params.businessId
   const [business, updateBusiness] = useState([])
   const [loading, updateLoading] = useState(true)
-
+  
   useEffect(() => {
     async function getBusiness() {
 
       const {data} = await axios.get(`/api/businesses/${businessId}`)
       updateBusiness(data)
+      console.log(data)
       updateLoading(false)
     }
     getBusiness()
