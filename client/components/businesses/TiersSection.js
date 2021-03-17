@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { getFundsRaised } from '../../lib/utilityFunctions'
 
-export default function FundSection({loading, business, isBusiness}) {
+export default function TierSection({loading, business, isBusiness}) {
   if (loading) return <div><p>loading</p></div>
 
   const fundPercentage = Math.floor(getFundsRaised(business) * (100 / business.fund[0].fund_goal))
