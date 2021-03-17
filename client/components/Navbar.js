@@ -10,6 +10,10 @@ function Navbar(props) {
     getLoggedInUser(props.userChanged)
   }, [])
 
+  function logOut() {
+    localStorage.clear()
+    history.push('/')
+  }
 
   const isBusiness = localStorage.getItem('isBusiness')
 
