@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 
-export default function BioSection(business, loading) {
+export default function BioSection({business, loading}) {
 
   if (loading) {
     return <div>
