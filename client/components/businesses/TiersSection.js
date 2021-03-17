@@ -11,7 +11,7 @@ export default function TiersSection({loading, business, isBusiness}) {
   else { displayPercentage = fundPercentage }
 
   return <div className='container profile-fund-info '>
-    {!isBusiness && <div className='is-flex is-flex-direction-row is-justify-content-space-evenly'>
+    {isBusiness === 'false' && <div className='is-flex is-flex-direction-row is-justify-content-space-evenly'>
       {business.fund[0].tiers.map(tier => {
         return <div className="card tier-cards tier-cards" key={tier.name}>
           <div className="card-content">
