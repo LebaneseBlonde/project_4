@@ -5,7 +5,6 @@ import axios from 'axios'
 export default function HeroSection({ business, loading }) {
 
   if(loading) return <div><p>loading</p></div>
-  console.log(business)
 
   return <div>
     <section className="hero profile-hero is-medium" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${business.image})`}}>

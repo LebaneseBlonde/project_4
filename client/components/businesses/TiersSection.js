@@ -4,7 +4,6 @@ import { getFundsRaised } from '../../lib/utilityFunctions'
 
 export default function FundSection({loading, business, isBusiness}) {
   if (loading) return <div><p>loading</p></div>
-  console.log(business)
 
   const fundPercentage = Math.floor(getFundsRaised(business) * (100 / business.fund[0].fund_goal))
   let displayPercentage = 0

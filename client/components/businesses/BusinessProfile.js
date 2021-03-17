@@ -19,7 +19,6 @@ export default function BusinessProfile({match}) {
 
       const {data} = await axios.get(`/api/businesses/${businessId}`)
       updateBusiness(data)
-      console.log(data)
       updateLoading(false)
     }
     getBusiness()

@@ -4,15 +4,16 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 
 function Navbar(props) {
-
-  const currentUser = props.currentUser
+  const [currentUser, setCurrentUser] = useState(props.currentUser)
   useEffect(() => {
     getLoggedInUser(props.userChanged)
   }, [])
 
   function logOut() {
     localStorage.clear()
-    history.push('/')
+    props.userChanged()
+    setCurrentUser(props.currentUser)
+    console.log(currentUser);
   }
 
   const isBusiness = localStorage.getItem('isBusiness')
@@ -22,6 +23,8 @@ function Navbar(props) {
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
           <Link className="navbar-item" to='/'><div> Home </div></Link>
+        </div>
+        <div className="navbar-end">
           {currentUser && isBusiness === 'false' && <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link"> Your account </a>
             <div className="navbar-dropdown">
@@ -36,7 +39,9 @@ function Navbar(props) {
               <Link className="navbar-item" to='/business/update_profile'><div className="navbar-item"> Account Settings </div></Link>
             </div>
           </div>}
-          {!currentUser && <div className="navbar-item has-dropdown is-hoverable">
+          {(currentUser && currentUser !== {}) && <div className='navbar-item' onClick={logOut}> Logout </div>}
+
+          {(!currentUser || currentUser === {}) && <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link"> Login/Register </a>
             <div className="navbar-dropdown">
               <Link className="navbar-item" to='/user/login'><div className="navbar-item"> User Login </div></Link>
