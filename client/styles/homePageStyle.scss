@@ -110,8 +110,10 @@
 .featuredStatusBar {
   height: 15px;
   background: rgb(220, 220, 220);
+  border-radius: 10px;
 }
 .featuredStatusBarProgress {
   height: 100%;
-  background: blue;
+  background: rgb(169, 75, 53);
+    border-radius: 10px;
 }

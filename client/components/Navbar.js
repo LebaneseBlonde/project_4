@@ -6,14 +6,15 @@ import axios from 'axios'
 function Navbar(props) {
 
   const currentUser = props.currentUser
-  setTimeout(()=> {
+  useEffect(() => {
     getLoggedInUser(props.userChanged)
-  }, 1000)
+  }, [])
+
 
   const isBusiness = localStorage.getItem('isBusiness')
 
   return <div>
-    <nav className="navbar is-light is-transparent" role="navigation" aria-label="main navigation">
+    <nav className="navbar navbar-fixed is-light is-transparent" role="navigation" aria-label="main navigation">
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
           <Link className="navbar-item" to='/'><div> Home </div></Link>

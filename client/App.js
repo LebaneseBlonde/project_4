@@ -7,6 +7,9 @@ import './styles/searchStyle.scss'
 import './styles/bioStyle.scss'
 import './styles/businessProfileStyle.scss'
 import './styles/updateStyle.scss'
+import './styles/heroSection.scss'
+
+
 
 
 
