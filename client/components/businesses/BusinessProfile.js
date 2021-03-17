@@ -10,7 +10,7 @@ import UpdatesSection from './UpdatesSection'
 export default function BusinessProfile() {
 
   return <div>
-    <BioSection />
+    <BioSection business={business} loading={loading}/>
     <FundSection />
     <UpdatesSection />
     <EndorsementsSection />
