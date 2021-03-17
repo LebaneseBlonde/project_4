@@ -26,7 +26,7 @@ export default function BusinessProfile({match}) {
   }, [])
     
 
-  return <div>
+  return <div id='businessProfilePage'>
     <HeroSection business={business} loading={loading}/>
     <TiersSection business={business} loading={loading}/>
     <BioSection business={business} loading={loading}/>

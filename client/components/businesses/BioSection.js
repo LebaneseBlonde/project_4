@@ -26,7 +26,7 @@ export default function BioSection({business, loading}) {
       </div>
     </article>
     <div id='gallery'>
-
+      
     </div>
   </section>
 }
