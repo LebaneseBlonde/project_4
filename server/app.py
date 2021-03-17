@@ -4,7 +4,7 @@ from config.environment import db_URI
 from flask_marshmallow import Marshmallow
 from flask_bcrypt import Bcrypt
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='dist')
 
 from decorators import logging, errors
 
@@ -35,3 +35,17 @@ app.register_blueprint(update_controller.router, url_prefix='/api')
 app.register_blueprint(tier_controller.router, url_prefix='/api')
 app.register_blueprint(pledge_controller.router, url_prefix='/api')
 app.register_blueprint(perk_controller.router, url_prefix='/api')
+
+## registering your blueprints...
+import os
+
+@app.route('/', defaults={'path': ''}) # homepage
+@app.route('/<path:path>') # any other path
+def catch_all(path):
+    dirname = os.path.dirname(__file__)
+    filename = os.path.join(dirname, 'dist/' + path)
+
+    if os.path.isfile(filename): # if path is a file, send it back
+        return app.send_static_file(path)
+
+    return app.send_static_file('index.html') # otherwise send back the index.html file
