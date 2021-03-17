@@ -1,19 +1,44 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 import axios from 'axios'
 
-function Navbar(props) {
-  const [currentUser, setCurrentUser] = useState(props.currentUser)
-  useEffect(() => {
-    getLoggedInUser(props.userChanged)
-  }, [])
+function Navbar({history}) {
+
+  const [currentUser, setCurrentUser] = useState({})
+
+  setTimeout(() => {
+    getLoggedInUser()
+  }, 250)
+
+  async function getLoggedInUser() {
+    if (!localStorage) return
+    const token = localStorage.getItem('token')
+    if (!token) return
+    const payloadAsString = atob(token.split('.')[1])
+    const payloadAsObject = JSON.parse(payloadAsString)
+    const id = payloadAsObject.sub
+
+    if (payloadAsObject.isBusiness !== 'true') {
+      let isBusiness = false
+      localStorage.setItem('isBusiness', isBusiness)
+      const {data} = await axios.get(`/api/users/${id}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      setCurrentUser(data)
+
+    } else {
+      let isBusiness = true
+      localStorage.setItem('isBusiness', isBusiness)
+      const {data} = await axios.get(`/api/businesses/${id}`)
+      setCurrentUser(data)
+    }
+  }
 
   function logOut() {
     localStorage.clear()
-    props.userChanged()
-    setCurrentUser(props.currentUser)
-    console.log(currentUser);
+    setCurrentUser({})
+    history.push('/')
   }
 
   const isBusiness = localStorage.getItem('isBusiness')
@@ -25,23 +50,23 @@ function Navbar(props) {
           <Link className="navbar-item" to='/'><div> Home </div></Link>
         </div>
         <div className="navbar-end">
-          {currentUser && isBusiness === 'false' && <div className="navbar-item has-dropdown is-hoverable">
+          {currentUser.id && isBusiness === 'false' && <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link"> Your account </a>
             <div className="navbar-dropdown">
-              <Link className="navbar-item" to='/user/profile'><div className="navbar-item"> Profile </div></Link>
+              <Link className="navbar-item" to={{pathname: '/user/dashboard', state: currentUser}}><div className="navbar-item"> Your Pledges </div></Link>
               <Link className="navbar-item" to='/user/update_profile'><div className="navbar-item"> Account Settings </div></Link>
             </div>
           </div>}
-          {currentUser && isBusiness === 'true' && <div className="navbar-item has-dropdown is-hoverable">
+          {currentUser.id && isBusiness === 'true' && <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link"> Your account </a>
             <div className="navbar-dropdown">
               <Link className="navbar-item" to='/business/profile'><div className="navbar-item"> Profile </div></Link>
               <Link className="navbar-item" to='/business/update_profile'><div className="navbar-item"> Account Settings </div></Link>
             </div>
           </div>}
-          {(currentUser && currentUser !== {}) && <div className='navbar-item' onClick={logOut}> Logout </div>}
+          {currentUser.id && <div className='navbar-item' onClick={logOut}> Logout </div>}
 
-          {(!currentUser || currentUser === {}) && <div className="navbar-item has-dropdown is-hoverable">
+          {!currentUser.id && <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link"> Login/Register </a>
             <div className="navbar-dropdown">
               <Link className="navbar-item" to='/user/login'><div className="navbar-item"> User Login </div></Link>
@@ -56,42 +81,4 @@ function Navbar(props) {
   </div>
 }
 
-async function getLoggedInUser(userChanged) {
-  if (!localStorage) return
-  const token = localStorage.getItem('token')
-  if (!token) return
-  const payloadAsString = atob(token.split('.')[1])
-  const payloadAsObject = JSON.parse(payloadAsString)
-  const id = payloadAsObject.sub
-  if (payloadAsObject.isBusiness != 'true') {
-    let isBusiness = false
-    localStorage.setItem('isBusiness', isBusiness)
-    const {data} = await axios.get(`/api/users/${id}`, {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-    userChanged(data)
-  } else {
-    let isBusiness = true
-    localStorage.setItem('isBusiness', isBusiness)
-    const {data} = await axios.get(`/api/businesses/${id}`)
-    userChanged(data)
-  }
-
-}
-
-function mapStateToProps(state){
-  return {
-    currentUser: state.currentUser
-  }
-} 
-
-function mapDispatchToProps(dispatch) {
-  return {
-    userChanged: (account) => {
-      const action = {type: 'USER_CHANGE', user: account}
-      dispatch(action)
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
+export default withRouter(Navbar)
