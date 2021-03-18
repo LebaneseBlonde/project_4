@@ -1,13 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-const inputFields = ['username', 'email', 'password']
+const inputFields = ['name', 'address_1', 'address_2', 'address_city', 'address_postcode', 'category', 'bio', 'image', 'established', 'email', 'password']
 
-export default function UserRegisterForm({ formData, handleChange, handleSubmit}) {
-
+export default function BusinessBioForm({ handleBioChange, handleBioSubmit, bioFormData }) {
   return (
     <div className="section">
-      <form onSubmit={handleSubmit}>
-        <h2>Register new user</h2>
+      <form onSubmit={handleBioSubmit}>
+        <h2>Register new business</h2>
         {inputFields.map((field) => {
           if (field === "password") {
             return (
@@ -19,8 +18,8 @@ export default function UserRegisterForm({ formData, handleChange, handleSubmit}
                   <input
                     className="input"
                     type="password"
-                    value={formData[field]}
-                    onChange={handleChange}
+                    value={bioFormData[field]}
+                    onChange={handleBioChange}
                     name={field}
                   />
                 </div>
@@ -36,8 +35,8 @@ export default function UserRegisterForm({ formData, handleChange, handleSubmit}
                   <input
                     className="input"
                     type="text"
-                    value={formData[field]}
-                    onChange={handleChange}
+                    value={bioFormData[field]}
+                    onChange={handleBioChange}
                     name={field}
                   />
                 </div>
@@ -45,7 +44,7 @@ export default function UserRegisterForm({ formData, handleChange, handleSubmit}
             );
           }
         })}
-        <button className="button my-3 is-warning">Submit</button>
+        <button className="button my-3 is-warning">Register</button>
       </form>
     </div>
   );

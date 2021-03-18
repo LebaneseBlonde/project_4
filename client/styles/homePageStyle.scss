@@ -1,3 +1,5 @@
+$yellow: #E6D648;
+
 .reactLink {
   color: black;
 }
@@ -7,59 +9,78 @@
   width: 100vw;
 }
 #homePageTop {
-  display:flex;
-  flex-direction:row;
-  justify-content: space-around;
-  align-items: center;
   height: 600px;
-  border-top:1px solid black;
-}
-#homePageImage {
-  width: 450px;
-}
-#homePageDescription {
-  display:flex;
-  flex-direction: column;
-  justify-content:space-around;
-  width: 450px;
-  height:300px;
-  border: 1px solid black;
-}
-#homePageMiddle {
-  display:flex;
-  flex-direction:row;
-  justify-content: space-around;
+  display: flex;
   align-items: center;
-  height: 500px;
-  background: rgb(228, 228, 228)
+  .container {
+    h2 {
+      font-size: 3rem;
+      line-height: 3.7rem;
+      padding-bottom: 24px;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+    @media screen and (min-width: 900px) {
+      h2, p {
+        max-width: 75%;
+      }
+    }
+  }
 }
-.homePageInfoCard{
-  height: 400px;
-  width: 350px;
-  border: 1px solid black;
-  border-radius: 3px;
+
+#homePageMiddle {
+  min-height: 600px;
+  background: $yellow;
+  display: flex;
+  .container {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    > * {
+      flex: 1;
+    }
+  }
+}
+.homePageInfoCard {
+  margin: 0 12px;
+  padding: 32px 0;
+  min-width: 262px;
+  height: 515px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all .2s ease-in-out; 
+  &:hover { 
+  transform: scale(1.05); 
+  }
 }
+
 .imageArea {
   height: 50%;
   width:100%;
-  border-bottom: 1px solid black;
-  background: rgb(169, 75, 53);
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #e7e7e7;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 12px solid $yellow;
 }
 .homePageIcon {
   height: 150px;
 }
 .infoCardTextArea {
-  width: 320px;
+  background: #ffffff;
+  padding: 18px 24px;
   height: 50%;  
+  border-radius: 0 0 10px 10px;
+  p {
+    font-size: 15px;
+  }
 }
 .infoCardTitle {
-  margin: 5px 0 20px 0;
+  padding-bottom: 12px;
 }
 
 #homePageBottom {

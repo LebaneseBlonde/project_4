@@ -1,17 +1,25 @@
-#searchPage {
-
-}
 #searchFormArea {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-#searchForm {
-  display:flex;
-  flex-direction:row;
+  h3 {
+    padding-bottom: 8px;
+  }
+  form {
+    max-width: unset;
+  }
+  .control {
+    width: 300px;
+  }
+  #searchForm {
+    display:flex;
+    flex-direction:row;
+    .select, .field {
+      margin-right: 12px;
+    }
+  }
 }
 #searchPageResults {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+  padding-top: 24px;
+}
+
+#searchPageHeader {
+  margin-bottom: 24px;
 }
