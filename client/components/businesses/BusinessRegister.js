@@ -8,7 +8,7 @@ import BusinessTierForm from './forms/BusinessTierForm'
 
 export default function BusinessRegister({history}) {
 
-  const [formNum, setFormNum] = useState(0)
+  const [formNum, setFormNum] = useState(2)
 
   const [bioFormData, setBioFormData] = useState({
     name : '',

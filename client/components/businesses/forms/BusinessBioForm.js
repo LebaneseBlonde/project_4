@@ -44,7 +44,7 @@ export default function BusinessBioForm({ handleBioChange, handleBioSubmit, bioF
             );
           }
         })}
-        <button className="button my-3 is-warning">Register</button>
+        <button className="button my-3 is-warning">Register Business</button>
       </form>
     </div>
   );
