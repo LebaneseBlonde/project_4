@@ -10,6 +10,7 @@ import './styles/updateStyle.scss'
 import './styles/heroSection.scss'
 import './styles/paymentStyle.scss'
 import "./styles/navbar.scss";
+import "./styles/endorsementsStyle.scss";
 import "./styles/fonts.scss";
 
 

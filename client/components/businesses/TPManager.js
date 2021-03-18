@@ -10,18 +10,15 @@ export default function TPManager(){
   const [loading, updateLoading] = useState(true)
   
   useEffect(() => {
-    async function getBusiness() {
-      const businessId = getBusinessId()
-      console.log(businessId);
-      console.log('hi')
-      const { data } = await axios.get(`/api/businesses/${businessId}`)
-      console.log(data);
-      updateBusiness(data)
-      updateLoading(false)
-      console.log('hi2')
-    }
     getBusiness()
   }, [])
+
+  async function getBusiness() {
+    const businessId = getBusinessId()
+    const { data } = await axios.get(`/api/businesses/${businessId}`)
+    updateBusiness(data)
+    updateLoading(false)
+  }
 
   function getBusinessId() {
     if (!localStorage) return
@@ -82,15 +79,14 @@ export default function TPManager(){
     }
   }
 
-
+  if(loading) return null
   return <div>
-    {/* <div>
+    <div className='is-flex is-flex-direction-row is-justify-content-space-evenly'>
       {business.fund[0].tiers.map(tier => {
         return <div className="card tier-cards tier-cards" key={tier.name}>
           <div className="card-content">
             <p className="subtitle is-5">{tier.name}</p>
             <p className="subtitle is-4">£{tier.price}</p>
-            <button className='button is-danger'>Join</button>
             <ul className="content perk-list">
               {tier.perks.map((perk, index) => {
                 return <li className='perk-list' key={index}>{perk.perk}</li>
@@ -99,7 +95,7 @@ export default function TPManager(){
           </div>
         </div>
       })}
-    </div> */}
+    </div>
 
     <BusinessTierForm 
       handleTierChange={handleTierChange}

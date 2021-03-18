@@ -4,12 +4,12 @@ export default function BusinessFundForm({handleFundChange, handleFundSubmit, fu
   const inputFields = [ 'subscription', 'fund_goal', 'funds_raised', 'description' ]
   
   return <div className='section'>
-    <p> fund form </p>
+    <h2>Register a Fund</h2>
     <form onSubmit={handleFundSubmit}>
       {inputFields.map(field => {
           return <div key={field} className="field">
             <label className="label">
-              {field[0].toUpperCase() + field.slice(1)}
+              {(field[0].toUpperCase() + field.slice(1)).replace('_', ' ')}
             </label>
             <div className="control">
               <input
@@ -23,7 +23,7 @@ export default function BusinessFundForm({handleFundChange, handleFundSubmit, fu
           </div>
         }
       )}
-      <button className="button my-3 is-warning">Register</button>
+      <button className="button my-3 is-warning">Add Fund</button>
     </form>
   </div>
 }

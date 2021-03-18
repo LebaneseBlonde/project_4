@@ -17,36 +17,41 @@ export default function BusinessTierForm({ handlePerkChange, handleTierChange, t
 
   // const [perksPerTier, setPerksPerTier] = useState([['perk']])
 
-  return <div>
+  return <div className='section'>
+    <h2>Add Tiers and Perks</h2>
     {tierFormData.map((tier, index) => {
-      return <div key={index}>
+      return <div key={index} className='field'>
         <TierForm index={index} handleTierChange={(event) => handleTierChange(event, index)} />
         {perkFormData[index].map((perk, index2) => {
           return <div key={index2}>
             <PerkForm index2={index2} handlePerkChange={(event) => handlePerkChange(event, index, index2)} />
           </div>
         })}
-        <button onClick={() => addPerk(index)}>Add perk</button>
+        <button className='button my-3 is-warning' onClick={() => addPerk(index)}>Add perk</button>
       </div>
     })}
-    <button onClick={addTier}>Add tier</button>
-    <button onClick={handleTierPerkSubmit}>Register</button>
+    <button className='button my-3 is-warning' onClick={addTier}>Add tier</button>
+    <button className='button my-3 is-warning' onClick={handleTierPerkSubmit}>Save</button>
   </div>
 
 }
 
 function TierForm({index, handleTierChange}) {
-  return <div> 
-    <p>Tier {index + 1}</p>
-    <input onChange={(event) => handleTierChange(event, index)} placeholder='Tier name' name='name'></input>
-    <input onChange={(event) => handleTierChange(event, index)} placeholder='Tier price' name='price'></input>
+  return <div className='control'> 
+    <div className='control'> 
+      <p className='label'>Tier {index + 1}</p>
+      <input className='input' onChange={(event) => handleTierChange(event, index)} placeholder='Tier name' name='name'></input>
+    </div>
+    <div className='control'>
+      <input className='input' onChange={(event) => handleTierChange(event, index)} placeholder='Tier price' name='price'></input>
+    </div> 
   </div> 
 }
 
 function PerkForm({index2, handlePerkChange}) {
-  return <div>
-    <p>Perk {index2 + 1}</p>
-    <input onChange={(event => handlePerkChange(event, index2))} placeholder='Perk details' name='perk'></input>
+  return <div className='control'>
+    <p className='label'>Perk {index2 + 1}</p>
+    <input className='input' onChange={(event => handlePerkChange(event, index2))} placeholder='Perk details' name='perk'></input>
   </div>
 }
 

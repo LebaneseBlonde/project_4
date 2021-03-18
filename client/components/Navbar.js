@@ -57,17 +57,19 @@ function Navbar({history}) {
               <Link className="navbar-item" to='/user/update_profile'><div> Account Settings </div></Link>
             </div>
           </div>}
+          {/* <div className="navbar-item">
+            <i class="fas fa-search"></i>
+          </div> */}
           {currentUser.id && isBusiness === 'true' && <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link is-arrowless"> Your account </a>
             <div className="navbar-dropdown">
               <Link className="navbar-item" to='/business/profile'><div> Profile </div></Link>
-              <Link className="navbar-item" to='/business/:businessId/tiers'><div className="navbar-item"> Update Business </div></Link>
-              <Link className="navbar-item" to='/'><div className="navbar-item"> Update Fund </div></Link>
-              <Link className="navbar-item" to={`/business/${currentUser.id}/tiers`}><div className="navbar-item"> Add/Remove Tiers </div></Link>
-              <Link className="navbar-item" to='/business/update_profile'><div> Account Settings </div></Link>
+              <Link className="navbar-item" to='/business/:businessId/tiers'><div> Update Business </div></Link>
+              <Link className="navbar-item" to='/'><div> Update Fund </div></Link>
+              <Link className="navbar-item" to={`/business/${currentUser.id}/tiers`}><div> Add/Remove Tiers </div></Link>
             </div>
           </div>}
-          {currentUser.id && <div className='navbar-item' onClick={logOut}> Logout </div>}
+          {currentUser.id && <div className='navbar-item logout' onClick={logOut}> Logout </div>}
 
           {!currentUser.id && <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link is-arrowless"> Login/Register </a>
