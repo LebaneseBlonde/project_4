@@ -1,0 +1,26 @@
+$platinum: #e7e7e7;
+$charcoal: #3e4e56;
+
+#endorsements {
+  background-color: $platinum;
+  padding-bottom: 36px;
+  h2 {
+    margin-bottom: 30px;
+  }
+  strong, p {
+    padding-bottom: 16px;
+  }
+  .endorsementComment::after {
+    display: inline-block;
+    content: "";
+    border-top: 2px solid black;
+    width: 75px;
+    transform: translateY(-1rem);
+  }
+  .endorsementComment:last-of-type {
+    padding-bottom: 32px;
+    &::after {
+      display: none;
+    }
+  }
+}

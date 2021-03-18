@@ -56,23 +56,24 @@ export default function BioSection({business, loading}) {
 
   return <div id='businessInfo'>
     <section id='businessText'>
+      <div className="container section">
+        <h2 className='businessSectionTitle'><strong>About {business.name}</strong></h2>
 
-      <h2 className='businessSectionTitle'><strong>About {business.name}</strong></h2>
-
-      <article id='businessDescription'>
-        <div id='contactInfo'>
-          <p>{business.name}</p>
-          <p>{business.email}</p>
-          <p>{business.address_1}</p>
-          <p>{business.address_2}</p>
-          <p>{business.address_city}</p>
-          <p>{business.address_postcode}</p>
-          <p>Est. {business.established}</p>
-        </div>
-        <div id='businessBio'>
-          <p>{business.bio}</p>
-        </div>
-      </article>
+        <article id='businessDescription'>
+          <div id='contactInfo'>
+            <p>{business.name}</p>
+            <p>{business.email}</p>
+            <p>{business.address_1}</p>
+            <p>{business.address_2}</p>
+            <p>{business.address_city}</p>
+            <p>{business.address_postcode}</p>
+            <p>Est. {business.established}</p>
+          </div>
+          <div id='businessBio'>
+            <p>{business.bio}</p>
+          </div>
+        </article>
+      </div>
     </section> 
     {business.gallery &&
     <section id='gallery'>

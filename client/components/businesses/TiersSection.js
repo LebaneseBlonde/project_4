@@ -10,7 +10,7 @@ export default function TiersSection({loading, business, isBusiness}) {
   if (fundPercentage > 100) { displayPercentage = 100 }
   else { displayPercentage = fundPercentage }
 
-  return <div className='container profile-fund-info '>
+  return <div className='profile-fund-info '>
     {isBusiness === 'false' && <div className='is-flex is-flex-direction-row is-justify-content-space-evenly'>
       {business.fund[0].tiers.map(tier => {
         return <div className="card tier-cards tier-cards" key={tier.name}>
@@ -18,7 +18,7 @@ export default function TiersSection({loading, business, isBusiness}) {
             <p className="subtitle is-5">{tier.name}</p>
             <p className="subtitle is-4">£{tier.price}</p>
             {business.fund[0].subscription && <p className="subtitle is-6">Per month</p>}
-            <button className='button is-danger'>Join</button>
+            <button className='button is-warning'>Join</button>
             <ul className="content perk-list">
               {tier.perks.map((perk, index) => {
                 return <li className='perk-list' key={index}>{perk.perk}</li>

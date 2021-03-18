@@ -104,8 +104,10 @@ export default function Home() {
       </section>
 
       <section id="homePageBottom">
-        <h2>Businesses live and funding</h2>
-        <HomeFeatured businesses={businesses} loading={loading} />
+        <div className="container">
+          <h2>Businesses live and funding</h2>
+          <HomeFeatured businesses={businesses} loading={loading} />
+        </div>
       </section>
     </div>
   );
