@@ -1,5 +1,80 @@
-// #paymentPage {
-//   display:flex;
-//   flex-direction:column;
-//   align-items:center;
-// }
+#paymentPage {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  background: rgb(240, 240, 240);
+  height:100vh;
+}
+#paymentArea {
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  width: 900px;
+}
+#paymentLeft {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+#loginPrompt {
+  display:flex;
+  flex-direction:column;
+  width:500px;
+  border: 2px solid rgb(210, 210, 210);
+  border-radius: 5px;
+  padding: 20px;
+  background: white;
+}
+#paymentLogin, #paymentRegister {
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+}
+#checkout {
+  width:500px;
+  border: 2px solid rgb(210, 210, 210);
+  border-radius: 5px;
+  padding: 20px;
+  margin: 25px;
+  height: 450px;
+  background: white;
+}
+#expiryCVC {
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+#paymentRight {
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  width:500px;
+  border: 2px solid rgb(210, 210, 210);
+  border-radius: 5px;
+  padding: 20px;
+  margin: 25px;
+  height: 450px;
+  background: white;
+}
+#price {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:center;
+  border-radius: 3px;
+  padding: 5px 15px 5px 15px;
+  background:rgba(0, 126, 0, 0.242);
+  border:1px solid rgba(0, 126, 0, 0.495);
+}
+#paymentButton {
+  width:100%;
+  margin-top: 10px;
+}
+.paymentSubTitle {
+  margin-bottom: 30px;
+}
+#summary {
+  margin-left: 90px;
+}
