@@ -17,7 +17,7 @@ export default function BusinessTierForm({ handlePerkChange, handleTierChange, t
 
   // const [perksPerTier, setPerksPerTier] = useState([['perk']])
 
-  return <div className='section'>
+  return <div className='section' id='tiersAndPerks'>
     <h2>Add Tiers and Perks</h2>
     {tierFormData.map((tier, index) => {
       return <div key={index} className='field'>
@@ -30,7 +30,7 @@ export default function BusinessTierForm({ handlePerkChange, handleTierChange, t
         <button className='button my-3 is-warning' onClick={() => addPerk(index)}>Add perk</button>
       </div>
     })}
-    <button className='button my-3 is-warning' onClick={addTier}>Add tier</button>
+    <button className='button my-3 is-warning addTierButton' onClick={addTier}>Add tier</button>
     <button className='button my-3 is-warning' onClick={handleTierPerkSubmit}>Save</button>
   </div>
 
@@ -38,11 +38,11 @@ export default function BusinessTierForm({ handlePerkChange, handleTierChange, t
 
 function TierForm({index, handleTierChange}) {
   return <div className='control'> 
-    <div className='control'> 
+    <div className='control tierName'> 
       <p className='label'>Tier {index + 1}</p>
       <input className='input' onChange={(event) => handleTierChange(event, index)} placeholder='Tier name' name='name'></input>
     </div>
-    <div className='control'>
+    <div className='control tierPrice'>
       <input className='input' onChange={(event) => handleTierChange(event, index)} placeholder='Tier price' name='price'></input>
     </div> 
   </div> 
