@@ -69,3 +69,12 @@ button {
      font-weight: 400;
    }
  }
+
+ #tiersAndPerks {
+   .tierName, .tierPrice {
+     padding-bottom: 8px;
+   }
+  }
+  .addTierButton {
+    margin-right: 8px;
+  }

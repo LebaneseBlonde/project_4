@@ -96,14 +96,15 @@ export default function TPManager(){
         </div>
       })}
     </div>
-
-    <BusinessTierForm 
-      handleTierChange={handleTierChange}
-      handlePerkChange={handlePerkChange}
-      tierFormData={tierFormData}
-      setTierFormData={setTierFormData}
-      setPerkFormData={setPerkFormData}
-      perkFormData={perkFormData}
-      handleTierPerkSubmit={handleTierPerkSubmit} />
+    <div className="container">
+      <BusinessTierForm 
+        handleTierChange={handleTierChange}
+        handlePerkChange={handlePerkChange}
+        tierFormData={tierFormData}
+        setTierFormData={setTierFormData}
+        setPerkFormData={setPerkFormData}
+        perkFormData={perkFormData}
+        handleTierPerkSubmit={handleTierPerkSubmit} />
+    </div>
   </div>
 }
