@@ -7,10 +7,15 @@ $yellow: #E6D648;
     font-weight: 700;
     color: #ffffff;
     font-size: 2.5rem;
+    transition: color 0.2s;
     &:hover {
       color: $yellow;
     }
   }
+}
+.logout {
+  color: #ffffff;
+  cursor: pointer;
 }
 .navbar-item:hover, .navbar-link:hover, .navbar-item.has-dropdown:hover .navbar-link, a.navbar-item:focus-within {
   background: $charcoal !important;

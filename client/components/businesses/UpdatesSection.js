@@ -24,32 +24,34 @@ export default function UpdatesSection({business, loading}) {
   }
   
   return <>
-    {updates.length > 0 && <div id='updateSection'>
+    {updates.length > 0 && <div id='updateSection' className="fullwidth">
+      <div className="container section">
       
-      <h2 className='businessSectionTitle'><strong>Updates</strong></h2>
+        <h2 className='businessSectionTitle'><strong>Updates</strong></h2>
 
-      {updates.map((update, index) => {
-        
-        return <div key={index} className='update'>
+        {updates.map((update, index) => {
+          
+          return <div key={index} className='update'>
 
-          <span><strong>{business.name}, </strong></span>
-          <span>{String(new Date(update.created_on)).substr(0, 15)}</span>
+            <span><strong>{business.name}, </strong></span>
+            <span>{String(new Date(update.created_on)).substr(0, 15)}</span>
 
-          <h3><strong>{update.title}</strong></h3>
+            <h3><strong>{update.title}</strong></h3>
 
-          {fullText !== index &&
-          <p>{update.content.substr(0, 130)}...</p>}
+            {fullText !== index &&
+            <p>{update.content.substr(0, 130)}...</p>}
 
-          {fullText === index && 
-          <p>{update.content}</p>}
+            {fullText === index && 
+            <p>{update.content}</p>}
 
-          {fullText !== index &&
-          <a onClick={() => toggleText(index)}>read more...</a>}
-          {fullText === index &&
-          <a onClick={() => toggleText(index)}>Hide</a>}
+            {fullText !== index &&
+            <a onClick={() => toggleText(index)}>read more...</a>}
+            {fullText === index &&
+            <a onClick={() => toggleText(index)}>Hide</a>}
 
-        </div>
-      })}
+          </div>
+        })}
+      </div>
     </div>}
   </>
 }

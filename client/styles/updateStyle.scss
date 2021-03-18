@@ -1,14 +1,16 @@
+$charcoal: #3e4e56;
+$platinum: #e7e7e7;
+$yellow: #E6D648;
+
 
 #updateSection {
   display:flex;
   flex-direction:column;
   align-items:center;
-  width: 600px;
-  border: 1px solid rgb(210, 210, 210);
-  border-radius: 5px;
-  padding: 20px;
+  background: $yellow;
+  margin: 36px 0;
 }
 .update {
-  width: 500px;
+  // width: 50%;
   margin-bottom: 30px;
 }

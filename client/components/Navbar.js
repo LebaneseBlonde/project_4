@@ -57,6 +57,9 @@ function Navbar({history}) {
               <Link className="navbar-item" to='/user/update_profile'><div> Account Settings </div></Link>
             </div>
           </div>}
+          {/* <div className="navbar-item">
+            <i class="fas fa-search"></i>
+          </div> */}
           {currentUser.id && isBusiness === 'true' && <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link is-arrowless"> Your account </a>
             <div className="navbar-dropdown">
@@ -67,7 +70,7 @@ function Navbar({history}) {
               <Link className="navbar-item" to='/business/update_profile'><div> Account Settings </div></Link>
             </div>
           </div>}
-          {currentUser.id && <div className='navbar-item' onClick={logOut}> Logout </div>}
+          {currentUser.id && <div className='navbar-item logout' onClick={logOut}> Logout </div>}
 
           {!currentUser.id && <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link is-arrowless"> Login/Register </a>

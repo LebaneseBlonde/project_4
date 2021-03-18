@@ -29,6 +29,9 @@ $yellow: #E6D648;
 .is-warning {
   background-color: $yellow !important;
 }
+.fullwidth {
+  width: 100vw;
+}
 
 form {
   max-width: 500px;
@@ -55,6 +58,10 @@ form {
 
 button {
   border-radius: 100px !important;
+  transition: all .2s ease-in-out; 
+  &:hover { 
+    transform: scale(1.1); 
+  }
 }
 
 .field {
