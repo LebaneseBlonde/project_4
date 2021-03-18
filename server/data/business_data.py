@@ -108,20 +108,6 @@ business_list = [
         password = 'password',
         fund = [fund_list[6]],
         gallery = [image_list[7], image_list[8]]
-    ),
-    Business(
-        name = "The Platform Cafe",
-        address_1 = '4 Tilia Road',
-        address_2 =  'Clapton',
-        address_city = 'London',
-        address_postcode = 'E5 8JB',
-        category = 'Cafés & Delis',
-        bio = "Located in the heart of Loughborough Junction, South London, The Platform Cafe has been operating since 2017, serving vegetarian cooking to our local community, focusing on wellbeing and sustainability. We support people to access healthy and nutritious food and a welcome space to feel at home. ",
-        image = 'https://www.crowdfunder.co.uk/uploads/projects/957827.jpg?1609950949',
-        established = '2010',
-        email = 'info@platform.com',
-        password = 'password',
-        fund = [fund_list[7]],
-        gallery = [image_list[7], image_list[8]]
     )
+    
 ]

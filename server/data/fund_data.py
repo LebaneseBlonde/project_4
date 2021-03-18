@@ -71,13 +71,13 @@ fund_list = [
     ),
     Fund(
         subscription = False,
-        fund_goal = 8000,
+        fund_goal = 10000,
         funds_raised = 11715,
-        description = "We want to build a kiosk at the side of the building to serve takeaways safely. We will adapt our outside space and install a canopy so that customers can comfortably eat outdoors, protected from the elements. These measures will help make our premises more Covid-secure and allow us to use the main room for much-needed community events whilst continuing to trade. ",
-        business_id = 8,
+        description = "We've survived the last year by adapting to the conditions, launching our new website and making good use of social media. However, most of our sales still come from footfall through the store. We find our customers want to come in and try things on before buying whilst catching up on local news and happenings! The brands we stock are popular brands that are hard to find in and around London. So, we are launching our crowdfunding appeal to help fund those changes and help us to be more resilient. If we reach our target of £5000 then we have applied for the Mayor of London to match that amount pound-for-pound! You can either make a straightforward donation of any amount or, if you buy a voucher we'll give you a further 20 percent discount off any item of clothing you purchase in-store. Buying a voucher or even making a donation will make a big difference to us. It will ensure we are here for you and any gesture will not be forgotten by us. We thank all our customers from the bottom of our hearts!",
+        business_id = 7,
         updates = [update_list[3]],
         endorsements = [endorsement_list[3]],
         tiers = [tier_list[6], tier_list[7]]
-    )
+    ),
     
 ]
