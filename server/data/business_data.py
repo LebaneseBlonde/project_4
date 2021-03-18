@@ -63,5 +63,35 @@ business_list = [
         password = 'password',
         fund = [fund_list[3]],
         gallery = [image_list[7], image_list[8]]
+    ),
+    Business(
+        name = "Jim's Cafe",
+        address_1 = '4 Tilia Road',
+        address_2 =  'Clapton',
+        address_city = 'London',
+        address_postcode = 'E5 8JB',
+        category = 'The Arts',
+        bio = "Jim’s Cafe has been a Chatsworth Road stalwart since the 1960’s, serving as a cafe and an ice cream factory, for six decades. Almost four years ago we took over the reigns, bringing our iconic burger and some great cocktails to the heart of Clapton. Over the past year we adapted our offering as much as we possibly could, offering takeaway food, cocktails and box meals both directly and through suppliers like Deliveroo to help us stay afloat.",
+        image = 'https://www.crowdfunder.co.uk/uploads/projects/1059506.jpg?1613990240',
+        established = '2010',
+        email = 'info@jimscafe.com',
+        password = 'password',
+        fund = [fund_list[4]],
+        gallery = [image_list[7], image_list[8]]
+    ),
+    Business(
+        name = "The Mensroom Clothes Shop",
+        address_1 = '4 Tilia Road',
+        address_2 =  'Clapton',
+        address_city = 'London',
+        address_postcode = 'E5 8JB',
+        category = 'The Arts',
+        bio = "We've been privileged to run the Mensroom Clothing shop for the last 24 years serving the clientele of Winchmore Hill and the surrounding areas. We take great pride in providing good quality clothing at great prices in a friendly and relaxed environment. ",
+        image = 'https://www.crowdfunder.co.uk/uploads/projects/1021384.jpg?1613586109',
+        established = '2010',
+        email = 'info@mensroom.com',
+        password = 'password',
+        fund = [fund_list[5]],
+        gallery = [image_list[7], image_list[8]]
     )
 ]

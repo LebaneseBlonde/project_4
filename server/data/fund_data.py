@@ -48,5 +48,25 @@ fund_list = [
         pledges = [pledge_list[6], pledge_list[7], pledge_list[8]],
         endorsements = [endorsement_list[3]],
         tiers = [tier_list[6], tier_list[7]]
+    ),
+    Fund(
+        subscription = False,
+        fund_goal = 5000,
+        funds_raised = 11715,
+        description = "Sadly, with only a couple of outside tables, and fluctuating group size restrictions, we have struggled to make ends meet even when we were able to open. We’re now nearly out of steam, as we (hopefully) approach the end of lockdown. It costs us over £6,000 per month to keep the doors closed, this covers the cost of our rent and monthly bills that continue to require payment even if we’re not trading. To open up for takeaway/box meals takes this cost up to £7,500, which in turn supports our staff and our supply chain, who are key to our successful reopening post COVID. If you’d like to help us ensure Jim’s can open again, as and when restrictions allow, we’d love your help. Your donations will help us to keep paying the bills and supporting our team so that we’re ready to go as soon as we’re allowed.",
+        business_id = 5,
+        updates = [update_list[3]],
+        endorsements = [endorsement_list[3]],
+        tiers = [tier_list[6], tier_list[7]]
+    ),
+    Fund(
+        subscription = False,
+        fund_goal = 10000,
+        funds_raised = 11715,
+        description = "We've survived the last year by adapting to the conditions, launching our new website and making good use of social media. However, most of our sales still come from footfall through the store. We find our customers want to come in and try things on before buying whilst catching up on local news and happenings! The brands we stock are popular brands that are hard to find in and around London. So, we are launching our crowdfunding appeal to help fund those changes and help us to be more resilient. If we reach our target of £5000 then we have applied for the Mayor of London to match that amount pound-for-pound! You can either make a straightforward donation of any amount or, if you buy a voucher we'll give you a further 20 percent discount off any item of clothing you purchase in-store. Buying a voucher or even making a donation will make a big difference to us. It will ensure we are here for you and any gesture will not be forgotten by us. We thank all our customers from the bottom of our hearts!",
+        business_id = 6,
+        updates = [update_list[3]],
+        endorsements = [endorsement_list[3]],
+        tiers = [tier_list[6], tier_list[7]]
     )
 ]
