@@ -68,5 +68,16 @@ fund_list = [
         updates = [update_list[3]],
         endorsements = [endorsement_list[3]],
         tiers = [tier_list[6], tier_list[7]]
+    ),
+    Fund(
+        subscription = False,
+        fund_goal = 8000,
+        funds_raised = 11715,
+        description = "We want to build a kiosk at the side of the building to serve takeaways safely. We will adapt our outside space and install a canopy so that customers can comfortably eat outdoors, protected from the elements. These measures will help make our premises more Covid-secure and allow us to use the main room for much-needed community events whilst continuing to trade. ",
+        business_id = 8,
+        updates = [update_list[3]],
+        endorsements = [endorsement_list[3]],
+        tiers = [tier_list[6], tier_list[7]]
     )
+    
 ]
