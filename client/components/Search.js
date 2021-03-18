@@ -45,12 +45,12 @@ export default function Search() {
   return (
     <div id="searchPage" className="page">
       <div className="container section">
-        <header id="searchPageHeader">
+        {/* <header id="searchPageHeader">
           <h2>Search Business Funds</h2>
           <p>
             A nice paragraph about all these lovely businesses you're searching
           </p>
-        </header>
+        </header> */}
 
         <section id="searchFormArea">
           <h3>Refine your search</h3>
@@ -84,7 +84,7 @@ export default function Search() {
               </div>
             </div>
 
-            <button className="button">Search</button>
+            <button className="button is-warning">Search</button>
           </form>
         </section>
 
