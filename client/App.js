@@ -23,7 +23,7 @@ import BusinessRegister from './components/businesses/BusinessRegister'
 import BusinessLogin from './components/businesses/BusinessLogin'
 import BusinessProfile from './components/businesses/BusinessProfile'
 import PaymentPage from './components/PaymentPage'
-
+import PaymentPage from './components/PaymentPage'
 const App = () => {
 
 
@@ -39,6 +39,7 @@ const App = () => {
       <Route exact path='/business/login' component={BusinessLogin} />
       <Route exact path='/payment' component={PaymentPage} />
       <Route exact path='/business/:businessId' component={BusinessProfile} />
+      <Route exact path='/completion' component={BusinessProfile} />
     </Switch>
   </BrowserRouter>
 }

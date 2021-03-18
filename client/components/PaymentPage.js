@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 export default function PaymentPage({location}) {
 
@@ -101,7 +99,6 @@ export default function PaymentPage({location}) {
             </div>
           </form>
         </div>
-
       </section>
 
       <section id='paymentRight'>
@@ -120,10 +117,10 @@ export default function PaymentPage({location}) {
           <div id='price'>
             <p>Total to pay:</p> <p>£{tier.price}</p>   
           </div>
-          <button className='button' id='paymentButton' onClick={handleSubmit}>Pay now</ button>
-        </div>
-        
-
+          <Link to={{pathname:'/completion', state: business}}>
+            <button className='button' id='paymentButton' onClick={handleSubmit}  >Pay now</ button>
+          </Link>        
+        </div>    
       </section>
 
     </main>
