@@ -26,7 +26,7 @@ import BusinessLogin from './components/businesses/BusinessLogin'
 import BusinessProfile from './components/businesses/BusinessProfile'
 import TPManager from './components/businesses/TPManager'
 import PaymentPage from './components/PaymentPage'
-import PaymentPage from './components/PaymentPage'
+
 // import UpdateUser from './components/users/UpdateUser'
 
 const App = () => {
