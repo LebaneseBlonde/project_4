@@ -134,25 +134,27 @@ export default function BusinessRegister({history}) {
     }
   }
 
-  return <div>
-    {formNum === 0 && <BusinessBioForm 
-      handleBioChange={handleBioChange}
-      handleBioSubmit={handleBioSubmit}
-      bioFormData={bioFormData}
-    />}
-    {formNum === 1 && <BusinessFundForm 
-      handleFundChange={handleFundChange}
-      handleFundSubmit={handleFundSubmit}
-      fundFormData={fundFormData}
-    />}
-    {formNum === 2 && <BusinessTierForm 
-      handleTierChange={handleTierChange}
-      handlePerkChange={handlePerkChange}
-      tierFormData={tierFormData}
-      setTierFormData={setTierFormData}
-      setPerkFormData={setPerkFormData}
-      perkFormData={perkFormData}
-      handleTierPerkSubmit={handleTierPerkSubmit}
-    />}
+  return <div className='page'>
+    <div className='container'>
+      {formNum === 0 && <BusinessBioForm 
+        handleBioChange={handleBioChange}
+        handleBioSubmit={handleBioSubmit}
+        bioFormData={bioFormData}
+      />}
+      {formNum === 1 && <BusinessFundForm 
+        handleFundChange={handleFundChange}
+        handleFundSubmit={handleFundSubmit}
+        fundFormData={fundFormData}
+      />}
+      {formNum === 2 && <BusinessTierForm 
+        handleTierChange={handleTierChange}
+        handlePerkChange={handlePerkChange}
+        tierFormData={tierFormData}
+        setTierFormData={setTierFormData}
+        setPerkFormData={setPerkFormData}
+        perkFormData={perkFormData}
+        handleTierPerkSubmit={handleTierPerkSubmit}
+      />}
+    </div>
   </div>
 }

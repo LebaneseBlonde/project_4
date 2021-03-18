@@ -9,6 +9,8 @@ import './styles/businessProfileStyle.scss'
 import './styles/updateStyle.scss'
 import './styles/heroSection.scss'
 import './styles/paymentStyle.scss'
+import "./styles/navbar.scss";
+import "./styles/fonts.scss";
 
 
 
@@ -22,8 +24,10 @@ import UserProfile from './components/users/UserProfile'
 import BusinessRegister from './components/businesses/BusinessRegister'
 import BusinessLogin from './components/businesses/BusinessLogin'
 import BusinessProfile from './components/businesses/BusinessProfile'
+import TPManager from './components/businesses/TPManager'
 import PaymentPage from './components/PaymentPage'
 import PaymentPage from './components/PaymentPage'
+// import UpdateUser from './components/users/UpdateUser'
 
 const App = () => {
 
@@ -35,9 +39,12 @@ const App = () => {
       <Route exact path='/user/register' component={UserRegister} />
       <Route exact path='/user/login' component={UserLogin} />
       <Route exact path='/user/dashboard' component={UserProfile} />
+      {/* <Route exact path='/user/update' component={UpdateUser} /> */}
       <Route exact path='/search' component={Search} />
       <Route exact path='/business/register' component={BusinessRegister} />
       <Route exact path='/business/login' component={BusinessLogin} />
+      <Route exact path='/business/:businessId/tiers' component={TPManager} />
+      <Route exact path='/business/:businessId' component={BusinessProfile} />
       <Route exact path='/payment' component={PaymentPage} />
       <Route exact path='/business/:businessId' component={BusinessProfile} />
       <Route exact path='/completion' component={BusinessProfile} />

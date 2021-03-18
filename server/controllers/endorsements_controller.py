@@ -1,23 +1,27 @@
 from flask import Blueprint, request, g
 from models.endorsement_model import Endorsement
 from models.fund_model import Fund
+from models.business_model import Business
 from serializers.endorsement_schema import EndorsementSchema
 from serializers.fund_schema import FundSchema
+from serializers.business_schema import BusinessSchema
 from decorators.secure_route import secure_route_user
 
 endorsement_schema = EndorsementSchema()
 fund_schema = FundSchema()
+business_schema = BusinessSchema()
 
 
 router = Blueprint(__name__, 'endorsements')
 
-@router.route('/funds/<int:fund_id>/endorsements', methods=['POST'])
+@router.route('/business/<int:business_id>/funds/<int:fund_id>/endorsements', methods=['POST'])
 @secure_route_user
-def post_endorsement(fund_id):
+def post_endorsement(business_id, fund_id):
 
     endorsement_dictionary = request.json
 
     fund = Fund.query.get(fund_id)
+    business = Business.query.get(business_id)
 
     endorsement = endorsement_schema.load(endorsement_dictionary)
 
@@ -26,7 +30,7 @@ def post_endorsement(fund_id):
 
     endorsement.save()
 
-    return fund_schema.jsonify(fund), 200
+    return business_schema.jsonify(business), 201
 
 
 @router.route('/funds/<int:fund_id>/endorsements/<int:endorsement_id>', methods=['PUT'])

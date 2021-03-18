@@ -28,38 +28,50 @@ export default function UserLogin({history}) {
     }
   }
 
-  return <div id='userLoginPage'>     
-    <section id='userLoginForm' className='section'>
-      <form onSubmit={handleSubmit}>
-        <h2>Sign In</h2>
-        <p>Don't have an account? <span><a href='/user/register'>Register</a></span></p>
-        <div className='field'>
-          <div className='control'>
-            <input
-              className='input'
-              type='text'
-              value={formData['email']}
-              onChange={handleChange}
-              name='email'
-              placeholder='Email'
-            />
+  return (
+    <div id="userLoginPage" className="page">
+      <section id="userLoginForm" className="section container">
+        <form onSubmit={handleSubmit}>
+          <h2>Sign In</h2>
+          <p>
+            Don't have an account?{" "}
+            <span>
+              <a href="/user/register">Register</a>
+            </span>
+          </p>
+          <div className="field">
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                value={formData["email"]}
+                onChange={handleChange}
+                name="email"
+                placeholder="Email"
+              />
+            </div>
           </div>
-        </div>
-        <div className='field'>
-          <div className='control'>
-            <input
-              className='input'
-              type='password'
-              value={formData['password']}
-              onChange={handleChange}
-              name='password'
-              placeholder='Password'
-            />
+          <div className="field">
+            <div className="control">
+              <input
+                className="input"
+                type="password"
+                value={formData["password"]}
+                onChange={handleChange}
+                name="password"
+                placeholder="Password"
+              />
+            </div>
           </div>
-        </div>
-        <button className="button mt-5 is-warning">Login</button>
-        <p>Are you a business? <span><a href='/business/login'>Business Login</a></span></p>
-      </form>
-    </section> 
-  </div>
+          <button className="button my-3 is-warning">Login</button>
+          <p>
+            Are you a business?{" "}
+            <span>
+              <a href="/business/login">Business Login</a>
+            </span>
+          </p>
+        </form>
+      </section>
+    </div>
+  );
 }

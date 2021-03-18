@@ -42,53 +42,56 @@ export default function Search() {
     }
   }
 
-  return <div id='searchPage'>
+  return (
+    <div id="searchPage" className="page">
+      <div className="container section">
+        <header id="searchPageHeader">
+          <h2>Search Business Funds</h2>
+          <p>
+            A nice paragraph about all these lovely businesses you're searching
+          </p>
+        </header>
 
-    <header id='searchPageHeader'>
-      <h1>Search Business Funds</h1>
-      <p>A nice paragraph about all these lovely businesses you're searching</p>
-    </header>
+        <section id="searchFormArea">
+          <h3>Refine your search</h3>
+          <form id="searchForm" onSubmit={handleSubmit}>
+            <div className="select">
+              <select
+                onChange={handleChange}
+                name="category"
+                value={formData["category"]}
+              >
+                <option>All Categories</option>
+                <option>Pubs & Bars</option>
+                <option>Restaurants</option>
+                <option>Cafés & Delis</option>
+                <option>Retail</option>
+                <option>Venues</option>
+                <option>The Arts</option>
+              </select>
+            </div>
 
-    <section id='searchFormArea'>
-      <h2>Refine your search</h2>
-      <form id='searchForm' onSubmit={handleSubmit}>
+            <div className="field">
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  value={formData["query"]}
+                  onChange={handleChange}
+                  name="query"
+                  placeholder="Search by name, city, postcode..."
+                />
+              </div>
+            </div>
 
-        <div className='select'>
-          <select 
-          onChange={handleChange}
-          name='category'
-          value={formData['category']}>
-            <option>All Categories</option>
-            <option>Pubs & Bars</option>
-            <option>Restaurants</option>
-            <option>Cafés & Delis</option>
-            <option>Retail</option>
-            <option>Venues</option>
-            <option>The Arts</option>
-          </select>
-        </div>
+            <button className="button">Search</button>
+          </form>
+        </section>
 
-        <div className='field'>
-          <div className='control'>
-            <input
-              className='input'
-              type='text'
-              value={formData['query']}
-              onChange={handleChange}
-              name='query'
-              placeholder='Search by name, city, postcode...'
-            />
-          </div>
-        </div>
-
-        <button className="button mt-5 is-warning">Search</button>
-
-      </form>
-    </section>
-
-    <section id='searchPageResults'>
-      <HomeFeatured businesses={businesses} loading={loading}/>
-    </section>
-
-  </div>
+        <section id="searchPageResults">
+          <HomeFeatured businesses={businesses} loading={loading} />
+        </section>
+      </div>
+    </div>
+  );
 }
