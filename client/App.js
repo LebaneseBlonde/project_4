@@ -24,6 +24,7 @@ import BusinessLogin from './components/businesses/BusinessLogin'
 import BusinessProfile from './components/businesses/BusinessProfile'
 import PaymentPage from './components/PaymentPage'
 import PaymentPage from './components/PaymentPage'
+
 const App = () => {
 
 
