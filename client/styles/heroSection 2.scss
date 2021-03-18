@@ -1,0 +1,51 @@
+.profile-hero{
+  background: linear-gradient(rgba(10, 60, 70, 0.5), rgba(10, 60, 70, 0.5));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.profile-fund-info{
+  width: 800px;
+}
+
+.tier-cards{
+  width: 300px;
+}
+
+.perk-list{
+  list-style-type: disc;
+}
+
+.margin{
+  margin: 20px;
+}
+
+.fund-desc {
+  display: flex;
+  justify-content: center;
+  max-width: 800px;
+  padding: 20px 0px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tier-cards{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.perk-list{
+  text-align: left;
+  margin-top: 10px;
+}
+
+.pledge-num{
+  font-weight: bold;
+  font-size: 30px;
+  margin: 20px;
+  
+}

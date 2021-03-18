@@ -30,6 +30,6 @@ export default function BusinessProfile({match}) {
     <TiersSection business={business} loading={loading} isBusiness={isBusiness} />
     <UpdatesSection business={business} loading={loading} isBusiness={isBusiness} />
     <BioSection business={business} loading={loading} isBusiness={isBusiness} />
-    <EndorsementsSection business={business} loading={loading} isBusiness={isBusiness} updateBusiness={updateBusiness}/>
+    <EndorsementsSection business={business} loading={loading} isBusiness={isBusiness} />
   </div>
 }
