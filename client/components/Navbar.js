@@ -44,35 +44,35 @@ function Navbar({history}) {
   const isBusiness = localStorage.getItem('isBusiness')
 
   return <div>
-    <nav className="navbar navbar-fixed is-light is-transparent" role="navigation" aria-label="main navigation">
+    <nav className="navbar navbar-fixed background-primary" role="navigation" aria-label="main navigation">
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
-          <Link className="navbar-item" to='/'><div> Home </div></Link>
+          <Link className="navbar-item" to='/'><h1>f&uuml;nd</h1></Link>
         </div>
         <div className="navbar-end">
           {currentUser.id && isBusiness === 'false' && <div className="navbar-item has-dropdown is-hoverable">
-            <a className="navbar-link"> Your account </a>
+            <a className="navbar-link is-arrowless"> Your account </a>
             <div className="navbar-dropdown">
-              <Link className="navbar-item" to={{pathname: '/user/dashboard', state: currentUser}}><div className="navbar-item"> Your Pledges </div></Link>
-              <Link className="navbar-item" to='/user/update_profile'><div className="navbar-item"> Account Settings </div></Link>
+              <Link className="navbar-item" to={{pathname: '/user/dashboard', state: currentUser}}><div> Your Pledges </div></Link>
+              <Link className="navbar-item" to='/user/update_profile'><div> Account Settings </div></Link>
             </div>
           </div>}
           {currentUser.id && isBusiness === 'true' && <div className="navbar-item has-dropdown is-hoverable">
-            <a className="navbar-link"> Your account </a>
+            <a className="navbar-link is-arrowless"> Your account </a>
             <div className="navbar-dropdown">
-              <Link className="navbar-item" to='/business/profile'><div className="navbar-item"> Profile </div></Link>
-              <Link className="navbar-item" to='/business/update_profile'><div className="navbar-item"> Account Settings </div></Link>
+              <Link className="navbar-item" to='/business/profile'><div> Profile </div></Link>
+              <Link className="navbar-item" to='/business/update_profile'><div> Account Settings </div></Link>
             </div>
           </div>}
           {currentUser.id && <div className='navbar-item' onClick={logOut}> Logout </div>}
 
           {!currentUser.id && <div className="navbar-item has-dropdown is-hoverable">
-            <a className="navbar-link"> Login/Register </a>
+            <a className="navbar-link is-arrowless"> Login/Register </a>
             <div className="navbar-dropdown">
-              <Link className="navbar-item" to='/user/login'><div className="navbar-item"> User Login </div></Link>
-              <Link className="navbar-item" to='/business/login'><div className="navbar-item"> Business Login </div></Link>
-              <Link className="navbar-item" to='/user/register'><div className="navbar-item"> Register User </div></Link>
-              <Link className="navbar-item" to='/business/register'><div className="navbar-item"> Register Business </div></Link>
+              <Link className="navbar-item" to='/user/login'><div> User Login </div></Link>
+              <Link className="navbar-item" to='/business/login'><div> Business Login </div></Link>
+              <Link className="navbar-item" to='/user/register'><div> Register User </div></Link>
+              <Link className="navbar-item" to='/business/register'><div> Register Business </div></Link>
             </div>
           </div>}
         </div>

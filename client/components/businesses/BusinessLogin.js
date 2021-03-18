@@ -25,8 +25,8 @@ export default function BusinessLogin({history}) {
     }
   }
 
-  return <div id='userLoginPage'>
-    <section id='userLoginForm' className='section'>
+  return <div id='userLoginPage' class='page'>
+    <section id='userLoginForm' className='section container'>
       <form onSubmit={handleSubmit}>
         <h2>Sign In</h2>
         <p>Don't have a business account? <span><a href='/business/register'>Register</a></span></p>
@@ -54,7 +54,7 @@ export default function BusinessLogin({history}) {
             />
           </div>
         </div>
-        <button className="button mt-5 is-warning">Login</button>
+        <button className="button my-3 is-warning">Login</button>
       </form>
     </section>
   </div>

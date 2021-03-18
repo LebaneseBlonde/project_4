@@ -29,11 +29,13 @@ export default function UserRegister({history}) {
     }
   }
 
-  return <div>
-    <UserRegisterForm
-      handleChange = {handleChange}
-      handleSubmit = {handleSubmit}
-      formData = {formData}
-    />
+  return <div class='page'>
+    <div class="container">
+      <UserRegisterForm
+        handleChange = {handleChange}
+        handleSubmit = {handleSubmit}
+        formData = {formData}
+      />
+    </div>
   </div>
 }

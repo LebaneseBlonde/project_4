@@ -23,7 +23,7 @@ export default function BusinessFundForm({handleFundChange, handleFundSubmit, fu
           </div>
         }
       )}
-      <button className="button mt-5 is-warning">Register</button>
+      <button className="button my-3 is-warning">Register</button>
     </form>
   </div>
 }
