@@ -12,7 +12,7 @@ import './styles/paymentStyle.scss'
 import "./styles/navbar.scss";
 import "./styles/endorsementsStyle.scss";
 import "./styles/fonts.scss";
-
+import "./styles/completionStyle.scss";
 
 
 
@@ -27,7 +27,7 @@ import BusinessLogin from './components/businesses/BusinessLogin'
 import BusinessProfile from './components/businesses/BusinessProfile'
 import TPManager from './components/businesses/TPManager'
 import PaymentPage from './components/PaymentPage'
-
+import PaymentCompletion from './components/PaymentCompletion'
 // import UpdateUser from './components/users/UpdateUser'
 
 const App = () => {
@@ -48,7 +48,7 @@ const App = () => {
       <Route exact path='/business/:businessId' component={BusinessProfile} />
       <Route exact path='/payment' component={PaymentPage} />
       <Route exact path='/business/:businessId' component={BusinessProfile} />
-      <Route exact path='/completion' component={BusinessProfile} />
+      <Route exact path='/completion' component={PaymentCompletion} />
     </Switch>
   </BrowserRouter>
 }

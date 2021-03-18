@@ -18,7 +18,7 @@ export default function TiersSection({loading, business, isBusiness}) {
             <p className="subtitle is-5">{tier.name}</p>
             <p className="subtitle is-4">£{tier.price}</p>
             {business.fund[0].subscription && <p className="subtitle is-6">Per month</p>}
-            <button className='button is-warning'>Join</button>
+            <Link to={{pathname: '/payment', state: {business: business, fund: business.fund[0], tier: tier}}}><button className='button is-warning'>Join</button></Link>            
             <ul className="content perk-list">
               {tier.perks.map((perk, index) => {
                 return <li className='perk-list' key={index}>{perk.perk}</li>
