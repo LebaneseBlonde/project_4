@@ -27,7 +27,7 @@ export default function BusinessBioForm({ handleBioChange, handleBioSubmit, bioF
 
           return <div key={field} className="field">
             <label className="label">
-              {field[0].toUpperCase() + field.slice(1)}
+              {(field[0].toUpperCase() + field.slice(1)).replace('_', ' ')}
             </label>
             <div className="control">
               <input

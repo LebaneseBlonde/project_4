@@ -61,7 +61,9 @@ function Navbar({history}) {
             <a className="navbar-link"> Your account </a>
             <div className="navbar-dropdown">
               <Link className="navbar-item" to='/business/profile'><div className="navbar-item"> Profile </div></Link>
-              <Link className="navbar-item" to='/business/update_profile'><div className="navbar-item"> Account Settings </div></Link>
+              <Link className="navbar-item" to='/business/:businessId/tiers'><div className="navbar-item"> Update Business </div></Link>
+              <Link className="navbar-item" to='/'><div className="navbar-item"> Update Fund </div></Link>
+              <Link className="navbar-item" to={`/business/${currentUser.id}/tiers`}><div className="navbar-item"> Add/Remove Tiers </div></Link>
             </div>
           </div>}
           {currentUser.id && <div className='navbar-item' onClick={logOut}> Logout </div>}
